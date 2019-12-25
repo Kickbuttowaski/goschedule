@@ -1,0 +1,67 @@
+@import url("https://rsms.me/inter/inter.css");
+body {
+  overflow-x: hidden;
+}
+.font-inter {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #333333;
+}
+.frame_close {
+  width: 400px;
+  height: 84px;
+  border-radius: 4px;
+  box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transform: translate(1500px, -50px);
+  z-index: 2;
+  display: inline-block;
+}
+.frame {
+  width: 400px;
+  height: 84px;
+  border-radius: 4px;
+  box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transform: translate(1500px, -50px);
+  transition: all 1s ease-in;
+  z-index: 2;
+  display: inline-block;
+}
+.show {
+  transform: translate(1000px, -50px);
+}
+.main_info {
+  composes: font-inter;
+  display: inline-block;
+  padding: 8px 0px 0px 32px;
+  margin: 0px;
+}
+.sub_info {
+  composes: font-inter;
+  padding: 0px 0px 16px 56px;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.43;
+}
+.statusicon {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top:8px;
+  left:8px;
+}
+.closeicon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding-left:150px;
+  top:8px;
+ }

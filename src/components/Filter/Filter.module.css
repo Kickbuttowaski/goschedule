@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.main_container{
+    width: 400px;
+    height: auto;
+    background:lightgray;
+}
+.selectDropdown{
+width: 100px;
+}

@@ -1,0 +1,29 @@
+@import url("https://rsms.me/inter/inter.css");
+*,
+::after,
+::before {
+  outline: none;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+.font-inter {
+  font-family: Inter;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 18px;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.container {
+  composes: font-inter;
+  max-width: 53px;
+  height: auto;
+  padding:0px 8px;
+  word-wrap:break-word;
+  background: #ffd4d1;
+  border-radius: 18px;
+}

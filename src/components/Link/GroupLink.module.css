@@ -1,0 +1,14 @@
+.div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row {
+  composes: div;
+  flex-direction: row;
+}
+
+.col {
+  composes: div;
+  flex-direction: column;
+}

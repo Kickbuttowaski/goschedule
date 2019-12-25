@@ -1,0 +1,44 @@
+table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+th,
+td {
+  min-width:100px;
+  padding-right: 2px;
+  max-width: 150px;
+}
+th {
+  border-bottom: 1px solid black;
+}
+
+thead > tr {
+  position: relative;
+  display: block;
+}
+thead.active {
+  box-shadow: -1px 5px 10px grey;
+}
+
+tbody {
+  display: block;
+  height: 150px;
+  overflow: auto;
+}
+
+tbody::-webkit-scrollbar {
+  width: 0 !important;
+}
+.filterVal {
+  display: flex;
+  align-items: center;
+}
+.modal{
+  width:600px;
+  height: 500px;
+  background-color: grey;
+  z-index: 2;
+  position: absolute;
+
+}

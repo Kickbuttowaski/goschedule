@@ -1,0 +1,55 @@
+tbody {
+  display: block;
+  height: 150px;
+  overflow: scroll;
+  overflow-x:hidden ;
+}
+thead,
+tbody tr {
+  border-collapse: collapse;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+th {
+  border-bottom: 1px solid black;
+}
+tbody::-webkit-scrollbar {
+  width: 0 !important;
+}
+thead.active {
+  box-shadow: 0px 2px 2px grey;
+}
+
+.filterVal {
+  display: flex;
+  align-items: center;
+}
+.modal {
+  width: auto;
+  height: auto;
+  padding:40px;
+  background-color: rgb(211, 206, 206);
+  z-index: 2;
+  position: absolute;
+  top:45px;
+  left:350px;
+}
+.modal_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.disableDiv {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: black;
+  z-index: 1;
+  display: none;
+}

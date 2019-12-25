@@ -1,0 +1,41 @@
+@import url("https://rsms.me/inter/inter.css");
+.font-inter {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+}
+
+.parent {
+  display: inline-block;
+  padding: 0px 12px 9px 12px;
+  color: black;
+  background-color: #2773ff;
+  cursor: pointer;
+  user-select: none;
+}
+.parent:hover {
+  background-color: #2368e6;
+}
+.parent:focus {
+  border: solid 1px #749be2;
+}
+.menu {
+  display: inline-flex;
+  flex-direction: column;
+  position:absolute;
+  background: white;
+  box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.1);
+  margin-left: 5px;
+  z-index: 2;
+}
+.menuitems {
+  composes: font-inter;
+  padding: 6px 10px;
+}
+.menuitems:hover {
+  background: #2773ff;
+}

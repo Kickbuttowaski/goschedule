@@ -1,0 +1,77 @@
+import React, { Component } from "react";
+import style from "./Tables.module.css";
+import _ from "lodash";
+import InputText from "../InputText/InputText";
+
+class Table extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dbData: [],
+      sortOrder: { path: "title", order: "asc" },
+      selectVal: ""
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ dbData: this.props.dbData });
+  }
+  handleSelect=(e)=> {
+    console.log(e.currentTarget.value);
+  }
+  getKeyValue=()=> {
+    const { dbData } = this.state;
+    let keyValue = Object.keys({ ...dbData[0] });
+    return keyValue;
+  }
+  handleSort=(path)=> {
+    const sortOrder = { ...this.state.sortOrder };
+    sortOrder["path"] = path;
+    sortOrder["order"] = sortOrder["order"] === "asc" ? "desc" : "asc";
+    this.setState({ sortOrder });
+  }
+  generateHeader=()=> {
+    const { dbData } = this.state;
+    let keyValue = this.getKeyValue();
+    return keyValue.map((header, index) => (
+      <th key={header} onClick={() => this.handleSort(header)}>
+        {this.props.label[index]}
+      </th>
+    ));
+  }
+  generateBody=(dbData)=> {
+    let keyValue = Object.keys({ ...dbData[0] });
+    return dbData.map(data => (
+      <tr>
+        {keyValue.map(keyy => (
+          <td>{data[keyy]}</td>
+        ))}
+      </tr>
+    ));
+  }
+  render() {
+    const { dbData, sortOrder, selectVal } = this.state;
+    const tableData = _.orderBy(dbData, sortOrder.path, sortOrder.order);
+    return (
+      <React.Fragment>
+        <div>
+        <InputText
+            icon="search"
+            placeholder="filter"
+            value={selectVal}
+            onChange={e => this.handleSelect(e)}
+          />
+        </div>
+        <table className={style["dataTable"]}>
+          <thead>
+            <tr>{this.generateHeader()}</tr>
+          </thead>
+          <tbody>{this.generateBody(tableData)}</tbody>
+        </table>
+      </React.Fragment>
+    );
+  }
+}
+
+export default Table;
+t

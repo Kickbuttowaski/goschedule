@@ -1,0 +1,165 @@
+@import url("https://rsms.me/inter/inter.css");
+
+
+.font-inter{
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+
+.nxtNforw {
+  padding: 4px 0px;
+  padding-left: 30px;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nxtNprev {
+  padding: 4px 0px;
+  padding-right: 30px;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dym {
+  text-align: center;
+  padding: 6px 5px;
+}
+.hdrCont_type1 {
+  display: flex;
+  margin: 0 0 8px;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+}
+.hdrCont_type2 {
+  background-color: black;
+  color: white;
+}
+.divHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.type2 {
+  visibility: hidden;
+}
+.days_row {
+  display: flex;
+  justify-content: space-between;
+}
+.internal_day_row {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.mainCont {
+  width: 241px;
+  height: 239px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px 0px;
+  background-color: white;
+  z-index: 2;
+}
+.w100 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.emptyDate {
+  text-align: center;
+  flex: 1;
+  padding: 4px 0;
+  font-weight: 300;
+  margin: 0px 3px;
+}
+.date {
+  composes:font-inter;
+  text-align: center;
+  flex: 1;
+  padding: 3px 0;
+  margin: 0px 3px;
+  border-radius: 50%;
+  user-select: none;
+}
+.date_highlight {
+  composes:font-inter;
+  text-align: center;
+  flex: 1;
+  padding: 3px 0;
+  margin: 0px 3px;
+  border-radius: 50%;
+  background-color: #2773ff;
+}
+.current_date_highlight {
+  composes:font-inter;
+  text-align: center;
+  flex: 1;
+  padding: 3px 0;
+  margin: 0px 3px;
+  border-radius: 50%;
+  background-color: #cccbcb;
+}
+.date:hover {
+  background-color: #e4e4e4;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #000000;
+}
+
+.dateSelected {
+  background-color: #275191;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.days {
+  composes:font-inter;
+  font-size: 14px;
+  line-height: 1.43;
+  text-align: center;
+  flex: 1;
+  padding: 6px 0;
+  user-select: none;
+}
+.propHeader,
+.props {
+  display: flex;
+}
+.props span {
+  flex: 1;
+  border-bottom: 1px solid #e2e9f1;
+  padding: 15px 20px;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+.propHeader span {
+  flex: 1;
+  border-bottom: 1px solid #e2e9f1;
+  padding: 15px 20px;
+  text-transform: capitalize;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: aliceblue;
+}
+.propContainer {
+  border: 1px solid #e2e9f1;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  border-bottom: 0;
+  overflow: hidden;
+}
+.divide{
+margin:0px;
+}

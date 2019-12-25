@@ -1,0 +1,145 @@
+@import url("https://rsms.me/inter/inter.css");
+*{
+  outline: none;
+}
+.font-inter {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+.small {
+  font-size: 14px;
+  border-radius: 4px;
+  height: 24px;
+  padding: 0px 12px;
+  
+}
+.medium {
+  padding: 0px 12px;
+  font-size: 14px;
+  height: 32px;
+  border-radius: 4px;
+}
+.large {
+  padding: 0px 12px;
+  font-size: 14px;
+  height: 40px;
+  border-radius: 4px;
+}
+.button {
+  composes: font-inter;
+  display: inline-block;
+  outline: none;
+  color: #fff;
+  margin: 4px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.input-icons i {
+  position: absolute;
+  cursor: pointer;
+}
+
+.icon {
+  padding-left: 10px;
+  padding-top: 10px;
+  text-align: left;
+  width: 18px;
+  height: 18px;
+}
+.icon-small {
+  composes: icon;
+  padding-top: 6px;
+}
+.icon-large {
+  composes: icon;
+  padding-top: 14px;
+  padding-left: 10px;
+}
+
+.primary {
+  composes: button;
+  color: #ffffff;
+  background-color: #2773ff;
+}
+.primary:hover {
+  background-color: #2368e6;
+}
+.primary:focus {
+  border: solid 1px #749be2;
+}
+.primaryicon {
+  composes: button;
+  color: #ffffff;
+  text-align: right;
+  background-color: #2773ff;
+  width: 89px;
+}
+
+.primaryicon:hover {
+  background-color: #2368e6;
+}
+.primaryicon:focus {
+  border: solid 2px #749be2;
+}
+.secondaryicon{
+  composes: button;
+  text-align: right;
+  color: #000000;
+  background-color: #ffffff;
+  border: solid 1px #ededed;
+  width: 89px;
+}
+.secondaryicon:hover {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.secondaryicon:focus {
+  border: solid 2px #2773ff;
+}
+.secondary {
+  composes: button;
+  color: #000000;
+  background-color: #ffffff;
+  border: solid 1px #ededed;
+}
+.secondary:hover {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.secondary:focus {
+  border: solid 2px #2773ff;
+}
+.disabled {
+  composes: button;
+  background-color: #ffffff;
+  border: solid 1px #e4e4e4;
+  color: #e4e4e4;
+  pointer-events: not-allowed;
+}
+.disabled_icon {
+  composes: button;
+  background-color: #ffffff;
+  border: solid 1px #e4e4e4;
+  color: #e4e4e4;
+  pointer-events: not-allowed;
+  text-align: right;
+  width: 89px;
+}
+.display-none {
+  display: none;
+}
