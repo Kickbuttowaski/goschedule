@@ -18,9 +18,13 @@ export default class UserPicker extends React.Component {
     this.changePicker = this.changePicker.bind(this)
   }
 
-  handleChange(val) {
+  handleChange(val,mode="S") {   
     let { onChange } = this.props;
     var selectedOption = this.state.selectedOption;
+    if(mode == "S")
+    {
+      selectedOption.length=0 
+    }
     selectedOption.push(val);
     this.setState({ selectedOption });
     onChange && onChange(val);
@@ -58,7 +62,7 @@ export default class UserPicker extends React.Component {
     {
       if(selectedOption.length !== 0)
       {
-        result = <p>{selectedOption[0]['value']}</p>
+        result = <p className={style.singleUserpicker}><img className={style.avatar} src={selectedOption[0]['avatar']}/>{selectedOption[0]['value']}</p>
       } 
     }
     else{
@@ -69,17 +73,25 @@ export default class UserPicker extends React.Component {
   }
 
   render() {
-    let { options, disabled = false } = this.props;
+    let { options, disabled = false,mode } = this.props;
     const { isOpen, selectedOption = "", arrow } = this.state;
     let selectedLabel = this.changePicker(this.props.mode)
-    console.log(selectedLabel)
-    let inputText=selectedOption.length !== 0? "add more people":"Enter people or Teams"
+    let inputText
+    let singleStyle = mode === "S"?"32px":""
+    console.log(singleStyle)
+    if(mode !== "S"){
+      inputText=selectedOption.length !== 0? "add more people":"Enter people or Teams"
+    }
+    else{
+      inputText=selectedOption.length !== 0? "":"Enter people"
+    }
+    
     let html = options.map((obj, i) => {
       return (
         <span
           key={i}
           className={style.dropdownList}
-          onClick={this.handleChange.bind(this, obj)}
+          onClick={this.handleChange.bind(this, obj,mode)}
         >
           <img className={style.avatar} src={obj.avatar} />
           {obj.label}
@@ -89,6 +101,7 @@ export default class UserPicker extends React.Component {
     return (
       <div className={style.selectContainer}>
         <div
+        style={{maxHeight:singleStyle}}
           className={
             isOpen === true ? style.selectStyle_click : style.selectStyle
           }
