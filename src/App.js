@@ -29,14 +29,11 @@ function App() {
   const [flag,setFlag]=useState(false)
 
   const handleClick=()=>{
-    //console.log(flag)
      setFlag(!flag)
   }
-  //console.log(temp)
   return (
     <div style={{"padding":"40px 0px 0px 40px"}} >
-      <Badge text="Sushmitha"/>
-      <UserPicker />
+      <UserPicker mode="S"/>
       </div>
   );
 }

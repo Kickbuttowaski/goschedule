@@ -15,6 +15,7 @@ export default class UserPicker extends React.Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
     this.removeBadge = this.removeBadge.bind(this);
+    this.changePicker = this.changePicker.bind(this)
   }
 
   handleChange(val) {
@@ -45,17 +46,33 @@ export default class UserPicker extends React.Component {
       }
     );
   }
-  removeBadge(badgeObj){
-    
+  removeBadge(badgeObj){  
     var selectedOption = [...this.state.selectedOption]
     selectedOption = selectedOption.filter(obj=>obj.value !== badgeObj.value)
     this.setState({selectedOption})
   }
+  changePicker(val){
+    let result=null;
+    let selectedOption = this.state.selectedOption;
+    if(val === "S")
+    {
+      if(selectedOption.length !== 0)
+      {
+        result = <p>{selectedOption[0]['value']}</p>
+      } 
+    }
+    else{
+      result = selectedOption.map(obj => {
+        return <Badge text={obj.value} avatar={obj.avatar} color="#f4f5f7" onClick={()=> this.removeBadge(obj)} />;
+      });} 
+  return result
+  }
+
   render() {
     let { options, disabled = false } = this.props;
     const { isOpen, selectedOption = "", arrow } = this.state;
-    let selectedLabel = null;
-    console.log(selectedOption)
+    let selectedLabel = this.changePicker(this.props.mode)
+    console.log(selectedLabel)
     let inputText=selectedOption.length !== 0? "add more people":"Enter people or Teams"
     let html = options.map((obj, i) => {
       return (
@@ -79,9 +96,7 @@ export default class UserPicker extends React.Component {
         >
           <div className={style.inputContainer}>
             <span >
-              {selectedOption.map(obj => {
-                return <Badge text={obj.value} avatar={obj.avatar} color="#f4f5f7" onClick={()=> this.removeBadge(obj)} />;
-              })}
+              {selectedLabel}
             <p className={style.selectedTxt}>{inputText}</p>
             </span>
           </div>
