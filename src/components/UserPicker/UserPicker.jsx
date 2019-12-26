@@ -48,13 +48,10 @@ export default class UserPicker extends React.Component {
   removeBadge(badgeObj){
     
     var selectedOption = [...this.state.selectedOption]
-    //console.log(selectedOption)
     selectedOption = selectedOption.filter(obj=>obj.value !== badgeObj.value)
-    //console.log(selectedOption)
     this.setState({selectedOption})
   }
   render() {
-    
     let { options, disabled = false } = this.props;
     const { isOpen, selectedOption = "", arrow } = this.state;
     let selectedLabel = null;

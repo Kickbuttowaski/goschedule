@@ -27,7 +27,7 @@ class Table extends Component {
   handleScroll = e => {
     var theadShadow;
     theadShadow = e.currentTarget.scrollTop === 0 ? true : false;
-    this.setState({ theadShadowww });
+    this.setState({ theadSha });
   };
   generateHeader = () => {
     const { dbData } = this.state;
