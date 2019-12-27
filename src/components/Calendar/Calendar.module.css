@@ -49,6 +49,12 @@
   display: flex;
   justify-content: space-between;
 }
+.headerSection{
+  height: 25%;
+}
+.dateSection{
+  height: 75%;
+}
 .type2 {
   visibility: hidden;
 }
@@ -63,18 +69,21 @@
   justify-content: space-evenly;
 }
 .mainCont {
-  width: 241px;
-  height: 239px;
+  min-width: 241px;
+  min-height: 239px;
+  height: 100%;
+  width: 100%;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 10px 0px;
-  background-color: white;
+  background-color: rgb(211, 94, 94);
   z-index: 2;
 }
 .w100 {
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 20%;
   justify-content: space-between;
 }
 .emptyDate {
@@ -92,6 +101,7 @@
   margin: 0px 3px;
   border-radius: 50%;
   user-select: none;
+  height: max-content;
 }
 .date_highlight {
   composes:font-inter;
@@ -108,7 +118,7 @@
   flex: 1;
   padding: 3px 0;
   margin: 0px 3px;
-  border-radius: 50%;
+  border-radius: 70%;
   background-color: #cccbcb;
 }
 .date:hover {

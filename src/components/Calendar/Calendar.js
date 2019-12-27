@@ -177,7 +177,7 @@ export default class Calendar extends React.Component {
     return (
       <React.Fragment>
         <section className={style.mainCont}>
-        <section>
+        <section className={style.headerSection}>
             <div className={style.divHeader}>
               <div
                 className={style.nxtNforw}
@@ -187,7 +187,7 @@ export default class Calendar extends React.Component {
                   src={arrow_left}
                   alt="user_profile"
                   className={style.hov}
-                ></img>
+                />
               </div>
               <div className={style.dym}>
                 <strong>
@@ -202,7 +202,7 @@ export default class Calendar extends React.Component {
                   src={arrow_right}
                   alt="user_profile"
                   className={style.hov}
-                ></img>
+                />
               </div>
             </div>
             <div className={style.days_row}>
@@ -218,7 +218,9 @@ export default class Calendar extends React.Component {
             </div>
             </section>
           <hr className={style.divide} />
+          <section className={style.dateSection}>
           {innerHtml}
+          </section>
         </section>
       </React.Fragment>
     );

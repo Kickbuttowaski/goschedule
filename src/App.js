@@ -32,8 +32,8 @@ function App() {
      setFlag(!flag)
   }
   return (
-    <div style={{"padding":"40px 0px 0px 40px"}} >
-      <UserPicker mode="S"/>
+    <div style={{height:"300px",width:"300px"}} >
+    <Calendar/>
       </div>
   );
 }

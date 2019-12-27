@@ -51,26 +51,28 @@
   -ms-user-select: none;
   user-select: none;
 }
+.input-icons{
+  display: inline-block;
+}
 .input-icons i {
-  position: absolute;
   cursor: pointer;
 }
 
 .icon {
-  padding-left: 10px;
-  padding-top: 10px;
+  position: relative;
   text-align: left;
   width: 18px;
   height: 18px;
+  left:28px;
+  top:3px;
 }
 .icon-small {
   composes: icon;
-  padding-top: 6px;
+  
 }
 .icon-large {
   composes: icon;
-  padding-top: 14px;
-  padding-left: 10px;
+
 }
 
 .primary {
