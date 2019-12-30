@@ -1,6 +1,10 @@
 @import url("https://rsms.me/inter/inter.css");
 
-
+*,*::before,*::after{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
 .font-inter{
   font-family: Inter;
   font-size: 12px;
@@ -51,6 +55,9 @@
 }
 .headerSection{
   height: 25%;
+  display: flex;
+  flex-direction: column;
+ justify-content: space-around;
 }
 .dateSection{
   height: 75%;
@@ -70,7 +77,7 @@
 }
 .mainCont {
   min-width: 241px;
-  min-height: 239px;
+  min-height: 250px;
   height: 100%;
   width: 100%;
   border-radius: 8px;
@@ -83,9 +90,26 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 20%;
+  height: 18%;
   justify-content: space-between;
 }
+.w100:first-child {
+  margin-top:1px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 18%;
+  justify-content: space-between;
+}
+.w100:last-child{
+  margin-bottom:20px ;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 18%;
+  justify-content: space-between;
+}
+
 .emptyDate {
   text-align: center;
   flex: 1;

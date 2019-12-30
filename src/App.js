@@ -32,7 +32,7 @@ function App() {
      setFlag(!flag)
   }
   return (
-    <div style={{height:"300px",width:"300px"}} >
+    <div style={{height:"500px",width:"500px"}} >
     <Calendar/>
       </div>
   );
