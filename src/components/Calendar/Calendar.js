@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Calendar.module.css";
 import arrow_left from "../../icons/arrow_left.svg";
 import arrow_right from "../../icons/arrow_right.svg";
-
+import { te } from "date-fns/locale";
 export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +43,7 @@ export default class Calendar extends React.Component {
         sYear: this.current_year
       }
     };
-    let tempDate = new Date(this.current_year, this.current_month, 0);
+    let tempDate = new Date(this.current_year, this.current_month + 1, 0);
     this.number_of_days = tempDate.getDate();
     this.firstDayOfMonth =
       new Date(this.current_year, this.current_month, 1).getDay() + 1;
@@ -165,7 +165,7 @@ export default class Calendar extends React.Component {
         );
       }
     }
-    let tempDate = new Date(this.current_year, this.current_month, 0);
+    let tempDate = new Date(this.current_year, this.current_month + 1, 0);
     this.number_of_days = tempDate.getDate();
     this.firstDayOfMonth =
       new Date(this.current_year, this.current_month, 1).getDay() + 1;
@@ -177,7 +177,7 @@ export default class Calendar extends React.Component {
     return (
       <React.Fragment>
         <section className={style.mainCont}>
-        <section className={style.headerSection}>
+          <section className={`${style[this.type]}`}>
             <div className={style.divHeader}>
               <div
                 className={style.nxtNforw}
@@ -187,7 +187,7 @@ export default class Calendar extends React.Component {
                   src={arrow_left}
                   alt="user_profile"
                   className={style.hov}
-                />
+                ></img>
               </div>
               <div className={style.dym}>
                 <strong>
@@ -202,7 +202,7 @@ export default class Calendar extends React.Component {
                   src={arrow_right}
                   alt="user_profile"
                   className={style.hov}
-                />
+                ></img>
               </div>
             </div>
             <div className={style.days_row}>
@@ -216,11 +216,9 @@ export default class Calendar extends React.Component {
                 <div className={style.days}>S</div>
               </div>
             </div>
-            </section>
-          <hr className={style.divide} />
-          <section className={style.dateSection}>
-          {innerHtml}
           </section>
+          <hr className={style.lineBreak} />
+          {innerHtml}
         </section>
       </React.Fragment>
     );
