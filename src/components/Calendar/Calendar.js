@@ -177,7 +177,7 @@ export default class Calendar extends React.Component {
     return (
       <React.Fragment>
         <section className={style.mainCont}>
-          <section className={`${style[this.type]}`}>
+          <section >
             <div className={style.divHeader}>
               <div
                 className={style.nxtNforw}

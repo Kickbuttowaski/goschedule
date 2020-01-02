@@ -33,9 +33,7 @@ function App() {
   }
   return (
     <div style={{height:"500px",width:"500px"}} >
-   <Button type="primary" size="small" ></Button>
-      <Button type="secondary" size="medium" ></Button>
-      <Button type="disabled" size="large" ></Button>
+  <Calendar/>
       </div>
   );
 }
