@@ -1,5 +1,5 @@
 @import url("https://rsms.me/inter/inter.css");
-*{
+*,*::after,*::before{
   outline: none;
 }
 .font-inter {
@@ -37,7 +37,6 @@
   display: inline-block;
   outline: none;
   color: #fff;
-  margin: 4px;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;

@@ -7,7 +7,6 @@ class DropList extends Component {
     super(props);
     this.state = { isOpen: false, selectedOption: {} };
     this.handleClick = this.handleClick.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
     this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
   }
 
@@ -21,20 +20,14 @@ class DropList extends Component {
       document.removeEventListener("click", this.hideDropdownMenu)
     );
   }
-  handleSelect(data) {
-    // console.log(data);
-    /*const selectedOption = {};
-    selectedOption["label"] = data.label;
-    selectedOption["value"] = data.value;
-    this.setState({ selectedOption });*/
-  }
+
   render() {
     const { isOpen, selectedOption } = this.state;
-    const { options, onClick } = this.props;
+    const { options, onClick,text } = this.props;
     return (
       <div>
         <div className={style["parent"]} onClick={this.handleClick}>
-          ...
+          {text}
         </div>
         <div className={`${style.menu}`}>
           {isOpen &&
@@ -43,7 +36,7 @@ class DropList extends Component {
                 className={style.menuitems}
                 key={data.value || data}
                 value="as"
-                onClick={() => onClick(data)}
+                onClick={()=>onClick(data)}
               >
                 {data.label || data}
               </span>
@@ -60,9 +53,10 @@ DropList.defaultProps = {
     { value: "sample2", label: "SAMPLE-2" },
     { value: "sample3", label: "SAMPLE-3" }
   ],
+  text:"...",
   dataId: "dropdownComp",
   onClick: function(data) {
-    console.log(data.value);
+    console.log(data);
   }
 };
 DropList.propTypes = {

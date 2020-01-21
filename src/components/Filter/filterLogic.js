@@ -1,10 +1,8 @@
 import { getMovies } from "../Table/fakeMovieService"
 import _ from "lodash";
 const chooseFilter=(field,logic,data,dbData)=>{
-    //console.log(field,logic,data,dbData)
+    
     var tempdata;
-  //  if(field || logic || data === "")
-    //    return dbData;
     if(logic === "c" || "dc")
     {
         tempdata=dbData.filter(val=>val[field].toLowerCase().includes(data.toLowerCase()))
@@ -24,20 +22,18 @@ const chooseFilter=(field,logic,data,dbData)=>{
     }
 
 }
-const filterLogic=(val)=>{
-    var db=getMovies()
+const filterLogic=(val,dbData)=>{
+    var db=dbData
     var finalData;
     var tempDb=db;
-    //if(val[0]['dropDown1'] || val[0]['dropDown2'] || === "" )
-   // console.table("empty")
     val.map(obj=>{
         if (obj['dropDown1'] && obj['dropDown2'] && obj['inputVal'] !== "")
         {
         finalData=chooseFilter(obj['dropDown1'],obj['dropDown2'],obj['inputVal'],tempDb)
         tempDb = finalData
     } 
-      console.table(tempDb)
-    })    
+    })  
+    return tempDb  
     //var data=tempDB.filter(data=>data[val[0]['dropDown1']].toLowerCase().includes(val[0]['inputVal']))
     //console.table(tempDb)
     //console.log(val[0]['inputVal'].toLower)

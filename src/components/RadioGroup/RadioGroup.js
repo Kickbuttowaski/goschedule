@@ -11,10 +11,11 @@ export default class RadioGroup extends React.Component {
   }
 
   handleOptionChange(data) {
-    console.log( data);
+   var {onClick} = this.props;
     this.setState({
-      selectedOption: data
+      selectedOption: data['id']
     });
+    onClick && onClick(data);
   }
 
   render() {
@@ -28,7 +29,7 @@ export default class RadioGroup extends React.Component {
     } = this.props;
     let optionHtml = options.map((obj, i) => {
       return (
-        <label key={i} className={style.container}>
+        <span key={i} className={style.container}>
           {obj.value}
           <input
             type="radio"
@@ -39,9 +40,10 @@ export default class RadioGroup extends React.Component {
             className={style.checkmark}
             value={obj.value}
             id={obj.id}
-            onClick={()=>this.handleOptionChange(obj.id)}
+            onClick={()=>this.handleOptionChange(obj)}
           ></span>
-        </label>
+
+        </span>
       );
     });
     return <div className={style.m4}>{optionHtml}</div>;
@@ -52,7 +54,10 @@ RadioGroup.defaultProps = {
   isChecked: false,
   disabled: false,
   dataId: "checkBoxComp",
-  label: "CheckBox"
+  label: "CheckBox",
+  onClick:(data)=>{
+    console.log("inbuilt",data)
+  }
 };
 RadioGroup.propTypes = {
   isChecked: PropTypes.bool,

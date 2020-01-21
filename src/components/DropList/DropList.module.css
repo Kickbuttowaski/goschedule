@@ -13,12 +13,12 @@
   display: inline-block;
   padding: 0px 12px 9px 12px;
   color: black;
-  background-color: #2773ff;
+  background-color: #f0f0f0;
   cursor: pointer;
   user-select: none;
 }
 .parent:hover {
-  background-color: #2368e6;
+  background-color:#f0f0f0;
 }
 .parent:focus {
   border: solid 1px #749be2;
@@ -37,5 +37,5 @@
   padding: 6px 10px;
 }
 .menuitems:hover {
-  background: #2773ff;
+  background: #f0f0f0;
 }

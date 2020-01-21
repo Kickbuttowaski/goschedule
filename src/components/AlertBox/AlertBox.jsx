@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import style from "./AlertBox.module.css";
 import checked from ".././icons/checked.svg";
 import delete_sign from ".././icons/delete_sign.svg"
+import { PropTypes } from 'prop-types';
 
 class AlertBox extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class AlertBox extends Component {
   }
   render() {
     let frameStatus = this.toggleAlert();
+    var {mainText,subText}=this.props
     return (
       <div className={frameStatus}>
         <img
@@ -26,12 +28,23 @@ class AlertBox extends Component {
           src={checked}
           alt="success_status"
         ></img>
-        <p className={style.main_info}>New customer added</p>
+        <p className={style.main_info}>{mainText}</p>
         <img className={style.closeicon} src={delete_sign} alt="close"></img>
-        <p className={style.sub_info}>user was added</p>
+        <p className={style.sub_info}>{subText}</p>
       </div>
     );
   }
 }
 
 export default AlertBox;
+
+AlertBox.defaultProps = {
+  mainText: "Sample main_text",
+  subText: "Sample sub_text"
+};
+AlertBox.propTypes = {
+  mainText: PropTypes.string,
+  subText: PropTypes.string
+};
+
+

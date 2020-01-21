@@ -28,12 +28,14 @@ function App() {
   var temp=true;
   const [flag,setFlag]=useState(false)
 
-  const handleClick=()=>{
-     setFlag(!flag)
+  const handleClick=(data)=>{
+    console.log("from app",data)
   }
-  return (
-    <div style={{height:"500px",width:"500px"}} >
-  <Calendar/>
+  return (  
+    <div >
+      <Button type="primary" size="small" text="promod is a"></Button>
+      <Button type="secondary" text="promod is a" size="medium" icon="user_profile"></Button>
+      <Button type="primary"  disabled={true} size="large" icon="user_profile"></Button>
       </div>
   );
 }

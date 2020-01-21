@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "./InputText.module.css";
-import user_profile from "../../icons/user_profile.svg";
+import delete_sign from "../../icons/delete_sign.svg";
 export default class InputText extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +41,7 @@ export default class InputText extends React.Component {
         <i
           className={icon === undefined ? style["display-none"] : style["icon"]}
         >
-          <img src={user_profile} alt="user_profile"></img>
+          <img src={delete_sign} alt="user_profile"></img>
         </i>
         <input
           type={type}

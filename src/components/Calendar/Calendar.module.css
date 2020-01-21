@@ -1,4 +1,4 @@
-@import url("https://rsms.me/inter/inter.css");
+@import url('https://rsms.me/inter/inter.css');
 *,
 ::after,
 ::before {
@@ -7,11 +7,11 @@
   margin: 0px;
 }
 
-.lineBreak{
-  padding:0px;
-  margin:0px;
+.lineBreak {
+  padding: 0px;
+  margin: 0px;
 }
-.font-inter{
+.font-inter {
   font-family: Inter;
   font-size: 12px;
   font-weight: normal;
@@ -23,19 +23,42 @@
   color: #333333;
 }
 .nxtNforw {
-  padding: 4px 0px;
-  padding-left: 30px;
+  position: relative;
   display: inline-block;
-  border-radius: 50%;
   cursor: pointer;
+  padding: 8px 12px;
+  left: 4%;
+  right: 8%;
+  top: 8%;
+  bottom: 8%;
+}
+.nxtNforw:hover{
+  background-color: #f7f7f7;
+  border-radius: 50%;
+}
+.nxtNforw:active{
+  background-color: #DAF4FF;
+  border-radius: 50%;
 }
 
 .nxtNprev {
-  padding: 4px 0px;
-  padding-right: 30px;
+  position: relative;
+  padding: 8px 12px;
   display: inline-block;
   border-radius: 50%;
   cursor: pointer;
+  left: -4%;
+  right: 8%;
+  top: 8%;
+  bottom: 8%;
+}
+.nxtNprev:hover{
+  background-color: #f7f7f7;
+  border-radius: 50%;
+}
+.nxtNprev:active{
+  background-color: #DAF4FF;
+  border-radius: 50%;
 }
 
 .dym {
@@ -72,9 +95,8 @@
   justify-content: space-evenly;
 }
 .mainCont {
-  width: 241px;
-  height: 239px;
-  border-radius: 8px;
+  border:1px solid black;
+  border-radius: 4px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 10px 0px;
   background-color: white;
@@ -85,55 +107,65 @@
   width: 100%;
   justify-content: space-between;
 }
+
 .emptyDate {
+  composes: font-inter;
   text-align: center;
   flex: 1;
-  padding: 4px 0;
-  font-weight: 300;
+  padding: 3% 0;
   margin: 0px 3px;
-}
-.date {
-  composes:font-inter;
-  text-align: center;
-  flex: 1;
-  padding: 3px 0;
-  margin: 0px 3px;
-  border-radius: 50%;
   user-select: none;
 }
-.date_highlight {
-  composes:font-inter;
+.date {
+  composes: font-inter;
   text-align: center;
   flex: 1;
-  padding: 3px 0;
+  padding: 3% 0;
   margin: 0px 3px;
-  border-radius: 50%;
+  user-select: none;
+}
+.date:hover span {
+  padding: 15% 16%;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #e4e4e4;
+}
+.date_highlight {
+  composes: font-inter;
+  text-align: center;
+  flex: 1;
+  padding: 3% 0;
+  margin: 0px 3px;
+}
+.date_highlight span {
   background-color: #2773ff;
+  padding: 15% 16%;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
 }
 .current_date_highlight {
-  composes:font-inter;
+  composes: font-inter;
   text-align: center;
   flex: 1;
-  padding: 3px 0;
+  padding: 3% 0;
   margin: 0px 3px;
-  border-radius: 50%;
-  background-color: #cccbcb;
 }
-.date:hover {
-  background-color: #e4e4e4;
-  border-radius: 50%;
+.current_date_highlight span {
+  padding: 15% 16%;
+  border-radius: 4px;
   cursor: pointer;
-  color: #000000;
+  background-color: #cccbcb;
 }
 
 .dateSelected {
   background-color: #275191;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 4px;
   font-weight: bold;
 }
 .days {
-  composes:font-inter;
+  composes: font-inter;
   font-size: 14px;
   line-height: 1.43;
   text-align: center;
@@ -163,7 +195,7 @@
 }
 .propContainer {
   border: 1px solid #e2e9f1;
-  border-radius: 5px;
+  border-radius: 4px;
   margin-bottom: 50px;
   border-bottom: 0;
   overflow: hidden;
