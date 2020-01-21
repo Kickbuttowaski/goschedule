@@ -33,7 +33,11 @@ function App() {
   }
   return (
     <div style={{height:"500px",width:"500px"}} >
+<<<<<<< HEAD
     <UserPicker mode="S"/>
+=======
+  <Calendar/>
+>>>>>>> 08f9aeca5a3df0401ab9783a6d786add9de1fccd
       </div>
   );
 }
