@@ -81,6 +81,13 @@
 .selectDropdown::-webkit-scrollbar {
   width: 0 !important;
 }
+.close{
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  left:280px;
+  top:10px;
+}
 .dropdownList:hover {
   display: block;
   background-color: #f0f0f0;

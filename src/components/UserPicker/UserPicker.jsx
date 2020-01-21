@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import style from "./UserPicker.module.css";
 import { man, man2, man3, girl, girl1 } from "../../icons/avatar";
 import Badge from "./Badge";
+import delete_sign from "../icons/delete_sign.svg"
 
 export default class UserPicker extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class UserPicker extends React.Component {
     this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
     this.removeBadge = this.removeBadge.bind(this);
     this.changePicker = this.changePicker.bind(this)
+    this.removeBadgeSingle = this.removeBadgeSingle.bind(this)
   }
 
   handleChange(val,mode="S") {   
@@ -55,6 +57,11 @@ export default class UserPicker extends React.Component {
     selectedOption = selectedOption.filter(obj=>obj.value !== badgeObj.value)
     this.setState({selectedOption})
   }
+  removeBadgeSingle(){
+    var selectedOption = this.state.selectedOption;
+    selectedOption.length=0 
+    this.setState({selectedOption})
+  }
   changePicker(val){
     let result=null;
     let selectedOption = this.state.selectedOption;
@@ -62,7 +69,10 @@ export default class UserPicker extends React.Component {
     {
       if(selectedOption.length !== 0)
       {
-        result = <p className={style.singleUserpicker}><img className={style.avatar} src={selectedOption[0]['avatar']}/>{selectedOption[0]['value']}</p>
+        result = <p className={style.singleUserpicker}>
+        <img className={style.avatar} src={selectedOption[0]['avatar']}/>
+        {selectedOption[0]['value']}
+        <img className={style.close} src={delete_sign} onClick={this.removeBadgeSingle}/></p>
       } 
     }
     else{
