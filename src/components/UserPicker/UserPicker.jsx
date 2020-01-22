@@ -20,7 +20,7 @@ export default class UserPicker extends React.Component {
     this.removeBadgeSingle = this.removeBadgeSingle.bind(this)
   }
 
-  handleChange(val,mode="S") {   
+  handleChange(val,mode) {   
     let { onChange } = this.props;
     var selectedOption = this.state.selectedOption;
     if(mode == "S")

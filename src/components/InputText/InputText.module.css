@@ -44,6 +44,7 @@
 }
 .input-icons{
   position: relative;
+  display: inline-block;
 }
 .input-icons i {
   position: absolute;
@@ -55,11 +56,10 @@
 }
 
 .icon {
-  padding-left: 8px;
-  padding-top: 8px;
-  text-align: left;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
+  left:4px;
+  top:35px;
 }
 
 .helper {

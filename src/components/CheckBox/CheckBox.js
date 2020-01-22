@@ -12,6 +12,7 @@ export default class CheckBox extends React.Component {
 
   onChange(e) {
     var { isChecked } = this.state;
+    var {onClick} = this.props;
     if (isChecked.indexOf(e) !== -1) {
       isChecked = isChecked.filter(data => data != e);
     } else {
@@ -20,6 +21,7 @@ export default class CheckBox extends React.Component {
     this.setState({
       isChecked
     });
+    onClick && onClick(isChecked)
   }
 
   render() {

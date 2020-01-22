@@ -49,16 +49,16 @@ export default class NewDropDown extends React.Component {
     const { isOpen, selectedOption = "", arrow } = this.state;
     let selectedLabel = null;
     let html = options.map((obj, i) => {
-      if (selectedOption === obj.value && selectedLabel === null) {
-        selectedLabel = obj.label;
+      if (selectedOption === obj.accessor && selectedLabel === null) {
+        selectedLabel = obj.Header;
       }
       return (
         <span
           key={i}
           className={style.dropdownList}
-          onClick={this.handleChange.bind(this, obj.value)}
+          onClick={this.handleChange.bind(this, obj.accessor)}
         >
-          {obj.label}
+          {obj.Header}
         </span>
       );
     });
@@ -90,9 +90,11 @@ export default class NewDropDown extends React.Component {
 
 NewDropDown.defaultProps = {
   options: [
-    { value: "chocolate", label: "ChocolateChocolateChocolateChocolateChocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" }
+    { accessor: "chocolate", Header: "ChocolateChocolateChocolateChocolateChocolate" },
+    { accessor: "strawberry", Header: "Strawberry" },
+    { accessor: "vanilla", Header: "Vanilla" },
+    { accessor: "vanill", Header: "Vani" },
+    { accessor: "vanil", Header: "Vanill" }
   ],
   disabled: false,
   dataId: "dropdownComp",

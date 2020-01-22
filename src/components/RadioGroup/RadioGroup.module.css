@@ -27,7 +27,9 @@
   opacity: 0;
   cursor: pointer;
 }
-
+.m4{
+  width: fit-content;
+}
 /* Create a custom radio button */
 .checkmark {
   position: absolute;

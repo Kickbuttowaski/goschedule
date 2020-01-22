@@ -1,29 +1,28 @@
-import React from "react";
-import style from "./Calendar.module.css";
-import arrow_left from "../../icons/arrow_left.svg";
-import arrow_right from "../../icons/arrow_right.svg";
-import { te } from "date-fns/locale";
+import React from 'react';
+import style from './Calendar.module.css';
+import arrow_left from '../icons/arrow_left.svg';
+import arrow_right from '../icons/arrow_right.svg';
 export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
-    this.type = "hdrCont_" + this.props.type;
+    this.type = 'hdrCont_' + this.props.type;
     this.getCurrentMonth = function() {
       this.date = new Date();
       return this.date.getMonth();
     };
     this.full_month_name = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
     ];
 
     this.date = new Date();
@@ -38,7 +37,7 @@ export default class Calendar extends React.Component {
         cYear: this.current_year
       },
       selectedDate: {
-        sDate: "",
+        sDate: '',
         sMonth: this.full_month_name[this.getCurrentMonth()],
         sYear: this.current_year
       }
@@ -56,32 +55,35 @@ export default class Calendar extends React.Component {
     var dayCalc = row * 7 + day - this.firstDayOfMonth + 1;
     if (
       dayCalc == tempDate.getDate() &&
-      selectedDate["sDate"] != tempDate.getDate() && 
-      dateProperty["cMonth"] == this.full_month_name[tempDate.getMonth()]
+      selectedDate['sDate'] != tempDate.getDate() &&
+      dateProperty['cMonth'] == this.full_month_name[tempDate.getMonth()] &&
+      dateProperty["cYear"] == tempDate.getFullYear()
     ) {
       return style.current_date_highlight;
     } else {
       var returnClass =
-        selectedDate["sDate"] === dayCalc &&
-        selectedDate["sMonth"] === dateProperty["cMonth"]
+        selectedDate['sDate'] === dayCalc &&
+        selectedDate['sMonth'] === dateProperty['cMonth'] &&
+        selectedDate["sYear"] === dateProperty["cYear"]
           ? style.date_highlight
           : style.date;
       return returnClass;
     }
   }
   handleDate(e) {
+    var {onClick} = this.props
     const dateProperty = { ...this.state.dateProperty };
     const selectedDate = { ...this.state.selectedDate };
-    selectedDate["sDate"] = e;
-    selectedDate["sMonth"] = dateProperty["cMonth"];
-    selectedDate["sYear"] = dateProperty["cYear"];
+    selectedDate['sDate'] = e;
+    selectedDate['sMonth'] = dateProperty['cMonth'];
+    selectedDate['sYear'] = dateProperty['cYear'];
     this.setState({ selectedDate });
+    onClick && onClick(selectedDate)
   }
   getInnerCalendar() {
     let innerHtml = null;
     let rows = [0, 1, 2, 3, 4, 5];
     let days = [1, 2, 3, 4, 5, 6, 7];
-    let count = 1;
     innerHtml = rows.map((row, index) => {
       return (
         <div className={style.w100} key={index}>
@@ -98,11 +100,13 @@ export default class Calendar extends React.Component {
                     this.handleDate(row * 7 + day - this.firstDayOfMonth + 1)
                   }
                 >
+                  <span>{row * 7 + day - this.firstDayOfMonth + 1 < 10 ?'0':''}
                   {row * 7 + day - this.firstDayOfMonth + 1}
+                  </span>
                 </p>
               );
             } else {
-              return <div className={style.emptyDate} key={index}></div>;
+              return <p className={style.emptyDate} key={index}></p>;
             }
           })}
         </div>
@@ -123,8 +127,8 @@ export default class Calendar extends React.Component {
   }
   setDateProperty(month, year) {
     const dateProperty = { ...this.state.dateProperty };
-    dateProperty["cMonth"] = month;
-    dateProperty["cYear"] = year;
+    dateProperty['cMonth'] = month;
+    dateProperty['cYear'] = year;
     this.setState({ dateProperty });
   }
   monthChanged(isNext) {
@@ -177,7 +181,7 @@ export default class Calendar extends React.Component {
     return (
       <React.Fragment>
         <section className={style.mainCont}>
-          <section >
+          <section>
             <div className={style.divHeader}>
               <div
                 className={style.nxtNforw}
@@ -185,7 +189,7 @@ export default class Calendar extends React.Component {
               >
                 <img
                   src={arrow_left}
-                  alt="user_profile"
+                  alt='user_profile'
                   className={style.hov}
                 ></img>
               </div>
@@ -200,7 +204,7 @@ export default class Calendar extends React.Component {
               >
                 <img
                   src={arrow_right}
-                  alt="user_profile"
+                  alt='user_profile'
                   className={style.hov}
                 ></img>
               </div>

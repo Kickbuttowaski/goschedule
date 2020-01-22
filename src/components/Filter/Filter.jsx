@@ -6,10 +6,11 @@ import NewDropDown from "./NewDropDown";
 import Button from "../Button/Button"
 import _ from "lodash";
 import filterLogic from './filterLogic';
+import PropTypes from "prop-types";
 
 class Filter extends Component {
   state = {
-    filterVal: [{ inputVal: "promod", dropDown1: "", dropDown2: "" }],
+    filterVal: [{ inputVal: "", dropDown1: "", dropDown2: "" }],
     more: false,
     counter: 0,
     flag: false
@@ -26,7 +27,9 @@ class Filter extends Component {
     this.setState({ filterVal,flag:false });
   }
   handleClick=()=>{
-    filterLogic(this.state.filterVal)
+    let { onFilter } = this.props;
+    let tempRes = filterLogic(this.state.filterVal,this.props.dbData)
+    onFilter && onFilter(tempRes)
   }
   setStatus = () => {
     var { filterVal } = this.state;
@@ -37,28 +40,19 @@ class Filter extends Component {
   render() {
     const options = ["contains", "is equal to", "not equal to"];
     const { more, counter, filterVal } = this.state;
-    //console.table(filterVal)
-    //filterLogic("Promod")
     return (
       <div className={style.main_container}>
       { filterVal.map((data, index) =>  
       <div className={style.container}>
         <NewDropDown
-        options={[
-          {value: "name",label: "name" },
-          { value: "phone", label: "phone" },
-          { value: "service", label: "service" },
-          { value: "booking_date", label: "booking_datedate" },
-          { value: "amount", label: "amount" },
-          { value: "status", label: "status" }
-        ]} 
+        options={this.props.options} 
          onChange={(val)=>this.handleDropdown(val,index,"d1")}/>
         <NewDropDown
         options={[
-          { value: "c",label: "contains" },
-          { value: "dc", label: "doesn't_contain" },
-          { value: "s", label: "starts with" },
-          {value: "e", label: "ends with"}
+          { accessor: "c",Header: "contains" },
+          { accessor: "dc", Header: "doesn't_contain" },
+          { accessor: "s", Header: "starts with" },
+          {accessor: "e", Header: "ends with"}
         ]}
          onChange={(val)=>this.handleDropdown(val,index,"d2")}/>
         <InputText
@@ -78,3 +72,9 @@ class Filter extends Component {
 
 export default Filter;
 
+Filter.defaultProps = {
+
+};
+Filter.propTypes = {
+  options: PropTypes.array
+};

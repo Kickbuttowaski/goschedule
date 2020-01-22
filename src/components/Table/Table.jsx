@@ -4,15 +4,19 @@ import _ from "lodash";
 import InputText from "../InputText/InputText";
 import Button from "../Button/Button";
 import Badge from "./../Badge/Badge";
+import Filter from './../Filter/Filter';
+import PropTypes from "prop-types";
 
 class Table extends Component {
   state = {
     dbData: [],
+    filterData:[],
     sortOrder: { path: "title", order: "asc" },
     theadShadow: true,
     selectVal: "",
     addValue: {},
-    openModel: false
+    openModel: false,
+    openFilter:false
   };
   componentDidMount() {
     this.setState({ dbData: this.props.dbData });
@@ -77,6 +81,9 @@ class Table extends Component {
   openModel = () => {
     this.setState({ openModel: !this.state.openModel, addValue: {} });
   };
+  openFilter = () =>{
+    this.setState({openFilter:!this.state.openFilter})
+  }
   populateInput = () => {
     let { tableData } = this.props;
     let { addValue } = this.state;
@@ -88,24 +95,32 @@ class Table extends Component {
       />
     ));
   };
+  handlefilter= (filterResult)=>{
+    this.setState({filterData:filterResult})
+    //filterResult
+  }
   appendData = () => {
     var dbData = [...this.state.dbData];
     dbData.push(this.state.addValue);
     this.setState({ dbData, openModel: false });
   };
   render() {
-    const { dbData, sortOrder, theadShadow, selectVal, openModel } = this.state;
+    const { dbData, sortOrder, theadShadow, selectVal, openModel, openFilter,filterData } = this.state;
     var tableData = "";
+    
+    if(filterData.length > 0)
+      {
+        console.log("in")
+        tableData = filterData
+      }
     if (selectVal != "" || undefined) {
       tableData = dbData.filter(m =>
         m.name.toLowerCase().startsWith(selectVal.toLowerCase())
       );
-    } else {
+    } else if(filterData.length <= 0){
       tableData = dbData;
     }
     tableData = _.orderBy(tableData, sortOrder.path, sortOrder.order);
-    //const tableData = _.difference(dbData,filtered)
-
     return (
       <React.Fragment>
         <div className={style.filterVal}>
@@ -116,6 +131,7 @@ class Table extends Component {
             onChange={e => this.handleSelect(e, "selectVal")}
           />
           <Button size="medium" text="Add" onClick={this.openModel} />
+          <Button size="medium" text="Filter" onClick={this.openFilter} />
         </div>
         {openModel && (
           <div className={style.modal}>
@@ -126,6 +142,8 @@ class Table extends Component {
             </div>
           </div>
         )}
+         {openFilter && <Filter options={this.props.tableData} dbData={this.state.dbData} onFilter={this.handlefilter}/>}
+         
         <div className={style.wrapper}>
           <table>
             <thead className={theadShadow === true ? "" : style.active}>

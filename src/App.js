@@ -28,14 +28,13 @@ function App() {
   var temp=true;
   const [flag,setFlag]=useState(false)
 
-  const handleClick=()=>{
-     setFlag(!flag)
+  const handleClick=(data)=>{
+    console.log("from app",data)
   }
-  return (
-    <div style={{height:"500px",width:"500px"}} >
-    <Button type="primary" size="small" icon="user_profile"></Button>
-      <Button type="secondary" text="promodaspromodas" size="medium" icon="user_profile"></Button>
-      <Button type="disabled" size="large" icon="user_profile"></Button>
+  return (  
+    <div >
+      <NewDropDown/>
+     
       </div>
   );
 }

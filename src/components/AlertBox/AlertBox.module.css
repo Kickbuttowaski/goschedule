@@ -1,4 +1,12 @@
 @import url("https://rsms.me/inter/inter.css");
+*,
+::after,
+::before {
+  outline: none;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
 body {
   overflow-x: hidden;
 }

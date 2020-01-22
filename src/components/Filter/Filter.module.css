@@ -7,6 +7,9 @@
     width: 400px;
     height: auto;
     background:lightgray;
+    position: absolute;
+    z-index: 10;
+    left:150px;
 }
 .selectDropdown{
 width: 100px;

@@ -10,24 +10,26 @@
 }
 .selectContainer {
   display: inline-block;
+
 }
 .selectStyle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
   height: 32px;
   border-radius: 4px;
   border: solid 1px #333333;
   background-color: #ffffff;
   cursor: pointer;
   user-select: none;
+  width: 80px;
+ 
 }
 .selectStyle_click {
+  width: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
   height: 32px;
   border-radius: 4px;
   border: 1px solid #2773ff;
@@ -37,20 +39,24 @@
 }
 
 .item2 {
-  position: absolute;
-  left:320px;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  
 }
 
 .selectedTxt {
   composes: font-inter;
   color: #333333;
-  padding: 6px 124px 6px 12px;
+  padding: 6px 8px 6px 12px;
+  overflow: hidden;
+  text-overflow: "...";
+  white-space: nowrap;   
 }
 .selectDropdown {
   user-select: none;
   margin-top: 4px;
   overflow-y: auto;
-  width: 300px;
   max-height: 140px;
   border-radius: 4px;
   background: #ffffff;
