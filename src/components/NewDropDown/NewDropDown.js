@@ -102,7 +102,7 @@ NewDropDown.defaultProps = {
   options: [
     {
       value: "chocolate",
-      label: "ChocolateChocolateChocolateChocolateChocolate"
+      label: "Chocolate"
     },
     { value: "strawberry", label: "Strawberry" },
     { value: "vanilla", label: "Vanilla" }

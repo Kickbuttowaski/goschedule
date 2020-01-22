@@ -1,6 +1,7 @@
 @import url("https://rsms.me/inter/inter.css");
-*,*::after,*::before{
+*,*::after,*::before,*:active{
   outline: none;
+  box-sizing: border-box;
 }
 .font-inter {
   font-family: Inter;
@@ -18,7 +19,7 @@
   border-radius: 4px;
   height: 24px;
   padding: 0px 12px;
-  
+
 }
 .medium {
   padding: 0px 12px;
@@ -37,6 +38,7 @@
   display: inline-block;
   outline: none;
   color: #fff;
+  
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -57,21 +59,34 @@
   cursor: pointer;
 }
 
-.icon {
+.icon_right {
   position: relative;
-  text-align: left;
   width: 18px;
   height: 18px;
-  left:28px;
+  left:8px;
   top:3px;
+  padding-right: 8px;
 }
-.icon-small {
-  composes: icon;
-  
+.icon_left {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  right:8px;
+  top:3px;
+  padding-left: 8px;
 }
-.icon-large {
-  composes: icon;
+.icon-small-left {
+  composes: icon_left;
+}
+.icon-small-right {
+  composes: icon_right;
+}
+.icon-large-left {
+  composes: icon_left;
+}
 
+.icon-large-right {
+  composes: icon_right;
 }
 
 .primary {
@@ -88,9 +103,9 @@
 .primaryicon {
   composes: button;
   color: #ffffff;
-  text-align: right;
   background-color: #2773ff;
-  width: 89px;
+  text-align: right;
+ 
 }
 
 .primaryicon:hover {
@@ -101,11 +116,10 @@
 }
 .secondaryicon{
   composes: button;
-  text-align: right;
   color: #000000;
   background-color: #ffffff;
   border: solid 1px #ededed;
-  width: 89px;
+  
 }
 .secondaryicon:hover {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
@@ -125,19 +139,35 @@
 .secondary:focus {
   border: solid 2px #2773ff;
 }
-.disabled {
+.disabled_primary {
   composes: button;
-  background-color: #ffffff;
-  border: solid 1px #e4e4e4;
-  color: #e4e4e4;
-  pointer-events: not-allowed;
+  background-color: #2773ff;
+  color: #ffffff;
+  opacity: 0.3;
+  cursor: not-allowed;
 }
-.disabled_icon {
+.disabled_icon_primary {
+  composes: button;
+  background-color: #2773ff;
+  color: #ffffff;
+  opacity: 0.3;
+  cursor: not-allowed;
+ 
+}
+.disabled_secondary {
   composes: button;
   background-color: #ffffff;
   border: solid 1px #e4e4e4;
   color: #e4e4e4;
-  pointer-events: not-allowed;
+  cursor: not-allowed;
+}
+
+.disabled_icon_secondary {
+  composes: button;
+  background-color: #ffffff;
+  border: solid 1px #e4e4e4;
+  color: #e4e4e4;
+  cursor: not-allowed;
   text-align: right;
   width: 89px;
 }
