@@ -78,19 +78,19 @@ export default class NewDropDown extends React.Component {
           }
           onClick={this.toggleDropdown}
         >
-          <div>
+          <div className={style.textcontainer}>  
             <span className={style.selectedTxt}>
               {selectedLabel === null
                 ? "Select any value"
                 : selectedLabel.substring(0, 35)}
             </span>
           </div>
+          <div className={style.item2}>
+            <img
+              src={user_profile}
+              alt="user_profile"
 
-          <img
-            src={user_profile}
-            alt="user_profile"
-            className={`${style.item2}  item1`}
-          ></img>
+            ></img></div>
         </div>
         {isOpen ? <div className={style.selectDropdown}>{html}</div> : null}
       </div>
@@ -101,8 +101,8 @@ export default class NewDropDown extends React.Component {
 NewDropDown.defaultProps = {
   options: [
     {
-      value: "chocolate",
-      label: "Chocolate"
+      value: "chocolatechocolate",
+      label: "Chocolate ChocolateChocolateChocolate"
     },
     { value: "strawberry", label: "Strawberry" },
     { value: "vanilla", label: "Vanilla" }

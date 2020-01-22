@@ -33,8 +33,13 @@ function App() {
   }
   return (  
     <div >
-      <NewDropDown/>
-     
+     <InputText
+        label="Header"
+        help="helper"
+        placeholder="enter name"
+        icon="attach_money"
+        isMandatory={false}
+      />
       </div>
   );
 }

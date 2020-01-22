@@ -46,7 +46,7 @@ export default class InputText extends React.Component {
         <input
           type={type}
           onChange={onChange || this.onChange}
-          style={isMandatory === "true" ? { border: "solid 2px #FA383E" } : {}}
+          style={isMandatory === true ? { border: "solid 2px #FA383E" } : {}}
           className={
             icon === undefined ? style["inputArea"] : style["inputArea-icon"]
           }

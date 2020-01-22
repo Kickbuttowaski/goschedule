@@ -80,6 +80,7 @@
 .divHeader {
   display: flex;
   justify-content: space-between;
+  align-items:flex-start ;
 }
 .type2 {
   visibility: hidden;
