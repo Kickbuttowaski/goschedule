@@ -16,13 +16,7 @@ export default class Button extends React.Component {
   
     return (
       <div onClick={onClick} className={style["input-icons"]}>
-        <i
-          className={
-            iconName === undefined ? style["display-none"] : style[icon]
-          }
-        >
-         <img  src={user_profile} />
-        </i>
+       
         <button
           className={`${style[type.toLowerCase()]} ${
             style[size.toLowerCase()]
@@ -31,6 +25,13 @@ export default class Button extends React.Component {
           type="button"
         >
           {text}
+          <i
+          className={
+            iconName === undefined ? style["display-none"] : style[icon]
+          }
+        >
+         <img  src={user_profile} />
+        </i>
         </button>
       </div>
     );

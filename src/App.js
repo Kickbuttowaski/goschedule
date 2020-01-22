@@ -33,11 +33,9 @@ function App() {
   }
   return (
     <div style={{height:"500px",width:"500px"}} >
-<<<<<<< HEAD
-    <UserPicker mode="S"/>
-=======
-  <Calendar/>
->>>>>>> 08f9aeca5a3df0401ab9783a6d786add9de1fccd
+    <Button type="primary" size="small" icon="user_profile"></Button>
+      <Button type="secondary" text="promodaspromodas" size="medium" icon="user_profile"></Button>
+      <Button type="disabled" size="large" icon="user_profile"></Button>
       </div>
   );
 }
