@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Badge = ({ text, color }) => {
   return (
-    <div style={{ background: color }} className={style.container}>
+    <div style={{ background: color }} className={style['badge']}>
       {text}
     </div>
   );

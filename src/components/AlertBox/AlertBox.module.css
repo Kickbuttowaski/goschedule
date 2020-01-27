@@ -30,8 +30,7 @@ body {
   z-index: 2;
   display: inline-block;
 }
-.frame {
-  margin-top: 30px;
+.alert-box {
   width: 400px;
   height: 84px;
   border-radius: 4px;
@@ -40,18 +39,20 @@ body {
   transform: translate(1500px, -50px);
   transition: all 1s ease-in;
   z-index: 2;
+  top:60px;
   display: inline-block;
+  position: fixed;
 }
-.show {
-  transform: translate(1000px, -50px);
+.alert-box--show {
+  transform: translate(800px, -50px);
 }
-.main_info {
+.alert-box__main-info {
   composes: font-inter;
   display: inline-block;
   padding: 10px 0px 0px 32px;
   margin: 0px;
 }
-.sub_info {
+.alert-box__sub-info {
   composes: font-inter;
   padding: 0px 0px 16px 56px;
   margin: 0px;
@@ -59,7 +60,7 @@ body {
   font-weight: normal;
   line-height: 1.43;
 }
-.statusicon {
+.alert-box__status-icon {
   display: inline-block;
   position: relative;
   width: 24px;
@@ -67,10 +68,10 @@ body {
   top:8px;
   left:8px;
 }
-.closeicon {
+.alert-box__close-icon {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  padding-left:180px;
   top:8px;
+  left:180px;
  }

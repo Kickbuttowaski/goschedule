@@ -18,10 +18,10 @@
   color: rgba(0, 0, 0, 0.8);
 }
 
-.container {
+.badge {
   composes: font-inter;
-  max-width: 53px;
-  height: auto;
+  display: inline-block;
+  width: fit-content;
   padding:0px 8px;
   word-wrap:break-word;
   background: #ffd4d1;

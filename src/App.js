@@ -32,13 +32,10 @@ function App() {
     console.log("from app",data)
   }
   return (  
-    <div style={{marginTop:"20px"}}>
+    <div >
     
-
-    <br></br>
-    
+<PTracker/>
    
-   <TestAlert/>
       </div>
   );
 }

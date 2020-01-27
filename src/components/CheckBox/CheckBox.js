@@ -29,11 +29,11 @@ export default class CheckBox extends React.Component {
    
     let optionHtml = options.map((obj, i) => {
       return (
-        <label key={i} className={style.container} >
+        <label key={i} className={style['check-box__each']} >
           {obj.value}
           <input type="checkbox" name="checkbox" />
           <span
-            className={style.checkmark}
+            className={style['check-box__checkmark']}
             value={obj.value}
             id={obj.id}
             onClick={() => this.onChange(obj.id)}
@@ -41,7 +41,7 @@ export default class CheckBox extends React.Component {
         </label>
       );
     });
-    return <div className={style.m4}>{optionHtml}</div>;
+    return <div className={style['check-box']}>{optionHtml}</div>;
   }
 }
 

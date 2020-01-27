@@ -9,69 +9,73 @@
   line-height: 1.43;
   letter-spacing: normal;
 }
-
-.container {
+.check-box{
+  width: fit-content;
+}
+.check-box__each {
   composes: font-inter;
+  width: fit-content;
   display: block;
   position: relative;
   width: fit-content;
-  padding-left: 28px;
-  margin-bottom: 10px;
+  padding:2px 0px 0px 28px;
+  margin:0px 0px 4px 0px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  cursor: pointer;
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.check-box__each input {
   position: absolute;
   opacity: 0;
-  cursor: pointer;
   height: 0;
   width: 0;
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.check-box__checkmark {
   position: absolute;
   top: 3px;
   left: 4px;
-  height: 13.5px;
-  width: 13.5px;
+  height: 16px;
+  width: 16px;
   background-color: #eee;
+  
 }
 
 /* On mouse-over, add a grey background color */
-.checkmark:hover {
-  cursor: pointer;
+.check-box__checkmark:hover {
   background-color: #ccc;
+  
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.check-box__each input:checked ~ .check-box__checkmark  {
   background-color: #2773ff;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.check-box__checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.check-box__each input:checked ~ .check-box__checkmark:after {
   display: block;
  
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.check-box__each .check-box__checkmark:after {
   left: 5px;
   top: 2px;
-  width: 4px;
-  height: 7px;
+  width: 5px;
+  height: 9px;
   border: solid white;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);

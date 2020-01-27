@@ -29,7 +29,7 @@ export default class RadioGroup extends React.Component {
     } = this.props;
     let optionHtml = options.map((obj, i) => {
       return (
-        <span key={i} className={style.container}  onClick={()=>this.handleOptionChange(obj)}>
+        <span key={i} className={style['radio-button']}  onClick={()=>this.handleOptionChange(obj)}>
           {obj.value}
           <input
             type="radio"
@@ -37,7 +37,7 @@ export default class RadioGroup extends React.Component {
             name="radio"
           />
           <span
-            className={style.checkmark}
+            className={style['radio-button__checkmark']}
             value={obj.value}
             id={obj.id}
           
@@ -46,7 +46,7 @@ export default class RadioGroup extends React.Component {
         </span>
       );
     });
-    return <div className={style.m4}>{optionHtml}</div>;
+    return <div className={style['radio-group']}>{optionHtml}</div>;
   }
 }
 

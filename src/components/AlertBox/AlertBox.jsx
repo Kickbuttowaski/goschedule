@@ -5,32 +5,27 @@ import delete_sign from "../icons/delete_sign.svg"
 import { PropTypes } from 'prop-types';
 
 class AlertBox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { frameStatus: `${style["frame"]}` };
-    this.toggleAlert = this.toggleAlert.bind(this);
+  state = { flag: true };
+
+  static getDerivedStateFromProps(props, current_state) {
+    return { flag: !current_state.flag }
   }
-
-  toggleAlert(flag) {
-    const { show } = this.props;
-
-    return show === true
-      ? `${style["frame"]} ${style["show"]}`
-      : `${style["frame"]}`;
+  toggleAlert = () => {
+    this.setState({ flag: true })
   }
   render() {
-    let frameStatus = this.toggleAlert();
-    var {mainText,subText}=this.props
+    var { mainText, subText } = this.props
+    var { flag } = this.state
     return (
-      <div className={frameStatus}>
+      <div className={flag === true ? `${style['alert-box']} ${style["alert-box--show"]}` : style['alert-box']}>
         <img
-          className={style.statusicon}
+          className={style['alert-box__status-icon']}
           src={checked}
           alt="success_status"
         ></img>
-        <p className={style.main_info}>{mainText}</p>
-        <img className={style.closeicon} src={delete_sign} alt="close"></img>
-        <p className={style.sub_info}>{subText}</p>
+        <p className={style['alert-box__main-info']}>{mainText}</p>
+        <img className={style['alert-box__close-icon']} src={delete_sign} alt="close" onClick={this.toggleAlert}></img>
+        <p className={style['alert-box__sub-info']} >{subText}</p>
       </div>
     );
   }
@@ -40,11 +35,13 @@ export default AlertBox;
 
 AlertBox.defaultProps = {
   mainText: "Sample main_text",
-  subText: "Sample sub_text"
+  subText: "Sample sub_text",
+  flag:true
 };
 AlertBox.propTypes = {
   mainText: PropTypes.string,
-  subText: PropTypes.string
+  subText: PropTypes.string,
+  show: PropTypes.bool
 };
 
 
