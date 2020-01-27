@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import style from "./AlertBox.module.css";
-import checked from ".././icons/checked.svg";
-import delete_sign from ".././icons/delete_sign.svg"
+import checked from "../icons/checked.svg";
+import delete_sign from "../icons/delete_sign.svg"
 import { PropTypes } from 'prop-types';
 
 class AlertBox extends Component {

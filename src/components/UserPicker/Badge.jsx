@@ -1,8 +1,8 @@
 import React,{useState} from "react";
 
 import style from "./Badge.module.css";
-import delete_sign from ".././icons/delete_sign.svg"
-import { man, man2, man3, girl, girl1 } from "../../icons/avatar";
+import delete_sign from "../icons/delete_sign.svg"
+import { man, man2, man3, girl, girl1 } from "../icons/avatar";
 
 
 const Badge = ({ text, color,avatar,onClick }) => {

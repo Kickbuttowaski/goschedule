@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "./Button.module.css";
-import user_profile from "./../icons/user_profile.svg"
+import user_profile from "../icons/user_profile.svg"
 
 export default class Button extends React.Component {
   handleClick=()=>{

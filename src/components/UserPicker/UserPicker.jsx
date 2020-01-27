@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "./UserPicker.module.css";
-import { man, man2, man3, girl, girl1 } from "../../icons/avatar";
+import { man, man2, man3, girl, girl1 } from "../icons/avatar";
 import Badge from "./Badge";
 import delete_sign from "../icons/delete_sign.svg"
 

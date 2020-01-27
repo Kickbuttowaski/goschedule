@@ -31,6 +31,7 @@ body {
   display: inline-block;
 }
 .frame {
+  margin-top: 30px;
   width: 400px;
   height: 84px;
   border-radius: 4px;
@@ -47,7 +48,7 @@ body {
 .main_info {
   composes: font-inter;
   display: inline-block;
-  padding: 8px 0px 0px 32px;
+  padding: 10px 0px 0px 32px;
   margin: 0px;
 }
 .sub_info {
@@ -70,6 +71,6 @@ body {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  padding-left:150px;
+  padding-left:180px;
   top:8px;
  }

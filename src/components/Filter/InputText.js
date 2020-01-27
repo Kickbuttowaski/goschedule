@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "./InputText.module.css";
-import user_profile from "../../icons/user_profile.svg";
+import user_profile from "../icons/user_profile.svg";
 export default class InputText extends React.Component {
   constructor(props) {
     super(props);
