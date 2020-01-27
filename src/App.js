@@ -32,15 +32,7 @@ function App() {
     console.log("from app",data)
   }
   return (  
-    <div >
-     <InputText
-        label="Header"
-        help="helper"
-        placeholder="enter name"
-        icon="attach_money"
-        isMandatory={false}
-      />
-      </div>
+    <Calendar/>
   );
 }
 
