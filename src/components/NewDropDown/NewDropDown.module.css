@@ -80,6 +80,7 @@
   padding-bottom: 5px;
   z-index: 2;
   position: absolute;
+  width: 240px;
 }
 .dropdownList {
   composes: font-inter;
@@ -89,6 +90,7 @@
   margin-top: 5px;
   margin-left: 2px;
   margin-right: 2px;
+  width: 240px;
 }
 .selectDropdown::-webkit-scrollbar {
   width: 0 !important;

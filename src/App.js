@@ -32,12 +32,32 @@ function App() {
     console.log("from app",data)
   }
   return (  
-    <Calendar/>
+    <div style={{marginTop:"20px"}}>
+    
+
+    <br></br>
+    
+   
+   <TestAlert/>
+      </div>
   );
 }
 
 export default App;
 /*
+
+    <Button type="primary" size="medium"></Button>
+    <Button type="primary" disabled={true} size="medium"></Button>
+    <Button type="primary"  size="medium" icon="user_profile" icon_position="right"></Button>
+    <Button type="primary"  size="medium" icon="user_profile" icon_position="left"></Button>
+    <Button type="primary" disabled={true} size="medium" icon="user_profile" icon_position="right"></Button>
+    <Button type="secondary" size="medium"></Button>
+    <Button type="secondary" disabled={true} size="medium"></Button>
+    <Button type="secondary"  size="medium" icon="user_profile" icon_position="right"></Button>
+    <Button type="secondary"  size="medium" icon="user_profile" icon_position="left"></Button>
+    <Button type="secondary" disabled={true} size="medium" icon="user_profile" icon_position="right"></Button>
+
+
   <ProgressTracker status={10} data={["Start","Under Process","Yet to complete","Completed"]}/>
       <Table
         dbData={getMovies()}

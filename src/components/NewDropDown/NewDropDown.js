@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "./NewDropDown.module.css";
-import user_profile from "../../icons/dd_arrow_down.svg";
+import user_profile from "../icons/dd_arrow_down.svg";
 
 export default class NewDropDown extends React.Component {
   constructor(props) {
@@ -78,7 +78,8 @@ export default class NewDropDown extends React.Component {
           }
           onClick={this.toggleDropdown}
         >
-          <div className={style.textcontainer}>  
+          <div className={style.textcontainer}>
+            
             <span className={style.selectedTxt}>
               {selectedLabel === null
                 ? "Select any value"
@@ -86,11 +87,8 @@ export default class NewDropDown extends React.Component {
             </span>
           </div>
           <div className={style.item2}>
-            <img
-              src={user_profile}
-              alt="user_profile"
-
-            ></img></div>
+            <img src={user_profile} alt="user_profile"></img>
+          </div>
         </div>
         {isOpen ? <div className={style.selectDropdown}>{html}</div> : null}
       </div>

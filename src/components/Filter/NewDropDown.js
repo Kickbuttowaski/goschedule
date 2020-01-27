@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "./NewDropDown.module.css";
-import user_profile from "../../icons/dd_arrow_down.svg"
+import user_profile from "../icons/dd_arrow_down.svg"
 
 export default class NewDropDown extends React.Component {
   constructor(props) {

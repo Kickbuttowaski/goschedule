@@ -97,9 +97,7 @@
 .primary:hover {
   background-color: #2368e6;
 }
-.primary:focus {
-  border: solid 1px #749be2;
-}
+
 .primaryicon {
   composes: button;
   color: #ffffff;
@@ -111,9 +109,7 @@
 .primaryicon:hover {
   background-color: #2368e6;
 }
-.primaryicon:focus {
-  border: solid 2px #749be2;
-}
+
 .secondaryicon{
   composes: button;
   color: #000000;
@@ -124,9 +120,7 @@
 .secondaryicon:hover {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
-.secondaryicon:focus {
-  border: solid 2px #2773ff;
-}
+
 .secondary {
   composes: button;
   color: #000000;
@@ -136,9 +130,7 @@
 .secondary:hover {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
-.secondary:focus {
-  border: solid 2px #2773ff;
-}
+
 .disabled_primary {
   composes: button;
   background-color: #2773ff;
