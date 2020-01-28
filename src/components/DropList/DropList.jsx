@@ -3,19 +3,15 @@ import PropTypes from "prop-types";
 import style from "./DropList.module.css";
 
 class DropList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isOpen: false, selectedOption: {} };
-    this.handleClick = this.handleClick.bind(this);
-    this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-  }
+  state = { isOpen: false, selectedOption: {} };
+  
 
-  handleClick() {
+  handleClick=()=> {
     this.setState({ isOpen: !this.state.isOpen }, () =>
       document.addEventListener("click", this.hideDropdownMenu)
     );
   }
-  hideDropdownMenu() {
+  hideDropdownMenu=()=> {
     this.setState({ isOpen: false }, () =>
       document.removeEventListener("click", this.hideDropdownMenu)
     );
@@ -26,14 +22,14 @@ class DropList extends Component {
     const { options, onClick,text } = this.props;
     return (
       <div>
-        <div className={style["parent"]} onClick={this.handleClick}>
+        <div className={style['droplist']} onClick={this.handleClick}>
           {text}
         </div>
-        <div className={`${style.menu}`}>
+        <div className={style['droplist__menu']}>
           {isOpen &&
             options.map(data => (
               <span
-                className={style.menuitems}
+                className={style['droplist__menuitems']}
                 key={data.value || data}
                 value="as"
                 onClick={()=>onClick(data)}

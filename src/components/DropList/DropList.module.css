@@ -9,21 +9,22 @@
   letter-spacing: normal;
 }
 
-.parent {
+.droplist {
   display: inline-block;
   padding: 0px 12px 9px 12px;
   color: black;
   background-color: #f0f0f0;
   cursor: pointer;
+  border-radius: 4px;
   user-select: none;
 }
-.parent:hover {
+.droplist:hover {
   background-color:#f0f0f0;
 }
-.parent:focus {
+.droplist:focus {
   border: solid 1px #749be2;
 }
-.menu {
+.droplist__menu {
   display: inline-flex;
   flex-direction: column;
   position:absolute;
@@ -31,11 +32,12 @@
   box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.1);
   margin-left: 5px;
   z-index: 2;
+  border-radius: 4px;
 }
-.menuitems {
+.droplist__menuitems {
   composes: font-inter;
   padding: 6px 10px;
 }
-.menuitems:hover {
+.droplist__menuitems:hover {
   background: #f0f0f0;
 }

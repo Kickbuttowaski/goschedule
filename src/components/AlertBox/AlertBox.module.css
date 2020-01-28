@@ -36,15 +36,24 @@ body {
   border-radius: 4px;
   box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  transform: translate(1500px, -50px);
+  right:-500px;
+  top:20px;
   transition: all 1s ease-in;
   z-index: 2;
-  top:60px;
   display: inline-block;
   position: fixed;
 }
 .alert-box--show {
-  transform: translate(800px, -50px);
+  width: 400px;
+  height: 84px;
+  border-radius: 4px;
+  box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  right:20px;
+  top:20px;
+  z-index: 2;
+  display: inline-block;
+  position: fixed;
 }
 .alert-box__main-info {
   composes: font-inter;
