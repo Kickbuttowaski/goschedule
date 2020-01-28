@@ -3,21 +3,15 @@ import PropTypes from "prop-types";
 import style from "./InputText.module.css";
 import user_profile from "../icons/user_profile.svg";
 export default class InputText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ""
-    };
-    this.onChange = this.onChange.bind(this);
-  }
+  state = {value: ""};
 
-  componentDidMount() {
+  componentDidMount=()=> {
     this.setState({
       value: this.props.value
     });
   }
 
-  onChange(e) {
+  onChange=(e) => {
     let { onKeyup } = this.props;
     this.setState({
       value: e.target.value

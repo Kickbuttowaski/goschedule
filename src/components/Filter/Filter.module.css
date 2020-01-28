@@ -1,16 +1,17 @@
-.container{
+.filter__inner{
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.main_container{
-    width: 400px;
+.filter{
+    padding:10px;
     height: auto;
     background:lightgray;
     position: absolute;
     z-index: 10;
     left:150px;
 }
-.selectDropdown{
-width: 100px;
+
+.filter--hidden{
+    display: none;
 }

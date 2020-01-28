@@ -6,11 +6,6 @@
   box-sizing: border-box;
   margin: 0px;
 }
-
-.lineBreak {
-  padding: 0px;
-  margin: 0px;
-}
 .font-inter {
   font-family: Inter;
   font-size: 12px;
@@ -22,7 +17,17 @@
   text-align: center;
   color: #333333;
 }
-.nxtNforw {
+.calendar {
+  padding: 10px 0px;
+  background-color: white;
+}
+.calendar__linebreak {
+  padding: 0px;
+  margin: 0px;
+  opacity: 0.3;
+}
+
+.header__backwardicon {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -32,16 +37,16 @@
   top: 8%;
   bottom: 8%;
 }
-.nxtNforw:hover{
+.header__backwardicon:hover{
   background-color: #f7f7f7;
   border-radius: 50%;
 }
-.nxtNforw:active{
+.header__backwardicon:active{
   background-color: #DAF4FF;
   border-radius: 50%;
 }
 
-.nxtNprev {
+.header__forwardicon {
   position: relative;
   padding: 8px 12px;
   display: inline-block;
@@ -52,16 +57,16 @@
   top: 8%;
   bottom: 8%;
 }
-.nxtNprev:hover{
+.header__forwardicon:hover{
   background-color: #f7f7f7;
   border-radius: 50%;
 }
-.nxtNprev:active{
+.header__forwardicon:active{
   background-color: #DAF4FF;
   border-radius: 50%;
 }
 
-.dym {
+.header__yearmonth {
   text-align: center;
   padding: 6px 5px;
 }
@@ -77,37 +82,31 @@
   background-color: black;
   color: white;
 }
-.divHeader {
+.calendar__header {
   display: flex;
   justify-content: space-between;
   align-items:flex-start ;
 }
-.type2 {
-  visibility: hidden;
-}
-.days_row {
+
+.header__week {
   display: flex;
   justify-content: space-between;
 }
-.internal_day_row {
+.week__row {
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: space-evenly;
 }
-.mainCont {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  padding: 10px 0px;
-  background-color: white;
-}
-.w100 {
+
+.calendar__bodyrow {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
 }
 
-.emptyDate {
+.bodyrow__emptydate {
   composes: font-inter;
   text-align: center;
   flex: 1;
@@ -115,7 +114,7 @@
   margin: 0px 3px;
   user-select: none;
 }
-.date {
+.bodyrow__date {
   composes: font-inter;
   text-align: center;
   flex: 1;
@@ -123,34 +122,34 @@
   margin: 0px 3px;
   user-select: none;
 }
-.date:hover span {
+.bodyrow__date:hover span {
   padding: 15% 16%;
   border-radius: 4px;
   cursor: pointer;
   background-color: #DAF4FF;
 }
-.date_highlight {
+.bodyrow__date--highlight {
   composes: font-inter;
   text-align: center;
   flex: 1;
   padding: 3% 0;
   margin: 0px 3px;
 }
-.date_highlight span {
+.bodyrow__date--highlight span {
   background-color: #005397;
   padding: 15% 16%;
   border-radius: 4px;
   cursor: pointer;
   color: #fff;
 }
-.current_date_highlight {
+.bodyrow__currentdate--highlight {
   composes: font-inter;
   text-align: center;
   flex: 1;
   padding: 3% 0;
   margin: 0px 3px;
 }
-.current_date_highlight span {
+.bodyrow__currentdate--highlight span {
   padding: 15% 16%;
   border-radius: 4px;
   cursor: pointer;
@@ -163,7 +162,7 @@
   border-radius: 4px;
   font-weight: bold;
 }
-.days {
+.week_row_days {
   composes: font-inter;
   font-size: 14px;
   line-height: 1.43;
@@ -171,31 +170,4 @@
   flex: 1;
   padding: 6px 0;
   user-select: none;
-}
-.propHeader,
-.props {
-  display: flex;
-}
-.props span {
-  flex: 1;
-  border-bottom: 1px solid #e2e9f1;
-  padding: 15px 20px;
-  text-transform: capitalize;
-  font-size: 14px;
-}
-.propHeader span {
-  flex: 1;
-  border-bottom: 1px solid #e2e9f1;
-  padding: 15px 20px;
-  text-transform: capitalize;
-  font-size: 15px;
-  font-weight: bold;
-  background-color: aliceblue;
-}
-.propContainer {
-  border: 1px solid #e2e9f1;
-  border-radius: 4px;
-  margin-bottom: 50px;
-  border-bottom: 0;
-  overflow: hidden;
 }

@@ -1,3 +1,11 @@
+*,
+::after,
+::before {
+  outline: none;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -16,6 +24,7 @@
 }
 .progressbar li {
     list-style-type: none;
+    width: 100px;
     float: left;
     font-size: 12px;
     position: relative;

@@ -35,30 +35,30 @@ export default class InputText extends React.Component {
       value,
       icon_position
     } = this.props;
-    let text_style = "inputArea-icon-"+icon_position
+    let text_style = "input-area__icon--"+icon_position
     return (
-      <div className={style["input-icons"]}>
-        <p className={style["header"]}>{label}</p>
-       {icon &&  <i className={icon_position === "right" ? style["icon-right"]:style["icon"]}>
+      <div className={style['input-holder']}>
+
+      {label && <p className={style["input-holder__header"]}>{label}</p>}  
+      <div>
+       {icon &&  <i className={icon_position === "right" ? style["input-holder__icon--right"]:style["input-holder__icon"]}>
           <img src={delete_sign} alt="user_profile"></img>
         </i>}
+
         <input
           type={type}
           onChange={onChange || this.onChange}
           style={isMandatory === true ? { border: "solid 2px #FA383E" } : {}}
           className={
-            icon === undefined ? style["inputArea"] : style[text_style]
+            icon === undefined ? style["input-area"] : style[text_style]
           }
           placeholder={placeHolder}
           value={value || this.state.value}
         />
-        <p
-          className={
-            help === undefined ? style["display-none"] : style["helper"]
-          }
-        >
+        {help && <p className={isMandatory ===true? style["input-holder__helper--red"]:style["input-holder__helper"]}>
           {help}
-        </p>
+          </p>}
+          </div>
       </div>
     );
   }

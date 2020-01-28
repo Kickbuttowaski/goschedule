@@ -18,14 +18,14 @@ tbody::-webkit-scrollbar {
   width: 0 !important;
 }
 thead.active {
-  box-shadow: 0px 2px 2px grey;
+  box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.06);
 }
 
-.filterVal {
+.table_option {
   display: flex;
   align-items: center;
 }
-.modal {
+.option__add-modal {
   width: auto;
   height: auto;
   padding:40px;
@@ -35,21 +35,8 @@ thead.active {
   top:45px;
   left:350px;
 }
-.modal_button{
+.option__add-modalbutton{
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.disableDiv {
-  position: fixed;
-  padding: 0;
-  margin: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  background-color: black;
-  z-index: 1;
-  display: none;
 }

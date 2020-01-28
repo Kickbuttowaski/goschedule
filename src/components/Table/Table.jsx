@@ -39,14 +39,14 @@ class Table extends Component {
   };
   generateHeader = () => {
     let { tableData } = this.props;
-    return tableData.map(({ Header, accessor, width }) => (
+    return tableData.map(({ label, value, width }) => (
       <th
         align="left"
-        key={accessor}
+        key={value}
         style={{ width: width }}
-        onClick={() => this.handleSort(accessor)}
+        onClick={() => this.handleSort(value)}
       >
-        {Header}
+        {label}
       </th>
     ));
   };
@@ -57,12 +57,12 @@ class Table extends Component {
     let { tableData } = this.props;
     return dbData.map(data => (
       <tr>
-        {tableData.map(({ accessor, badge, width }) =>
+        {tableData.map(({ value, badge, width }) =>
           badge === undefined && badge !== true ? (
-            <td style={{ width: width }}>{data[accessor]}</td>
+            <td style={{ width: width }}>{data[value]}</td>
           ) : (
             <td style={{ width: width }}>
-              <Badge text={data[accessor]} color="#C0F7F1" />
+              <Badge text={data[value]} color="#C0F7F1" />
             </td>
           )
         )}
@@ -87,17 +87,16 @@ class Table extends Component {
   populateInput = () => {
     let { tableData } = this.props;
     let { addValue } = this.state;
-    return tableData.map(({ Header, accessor }) => (
+    return tableData.map(({ label, value }) => (
       <InputText
-        placeHolder={Header}
-        value={addValue[accessor]}
-        onChange={e => this.handleSelect(e, accessor, false)}
+        placeHolder={label}
+        value={addValue[value]}
+        onChange={e => this.handleSelect(e, value, false)}
       />
     ));
   };
   handlefilter= (filterResult)=>{
     this.setState({filterData:filterResult})
-    //filterResult
   }
   appendData = () => {
     var dbData = [...this.state.dbData];
@@ -110,7 +109,6 @@ class Table extends Component {
     
     if(filterData.length > 0)
       {
-        console.log("in")
         tableData = filterData
       }
     if (selectVal != "" || undefined) {
@@ -123,9 +121,10 @@ class Table extends Component {
     tableData = _.orderBy(tableData, sortOrder.path, sortOrder.order);
     return (
       <React.Fragment>
-        <div className={style.filterVal}>
+        <div className={style['table_option']}>
           <InputText
             icon="search"
+            icon_position="right"
             placeHolder="filter name"
             value={selectVal}
             onChange={e => this.handleSelect(e, "selectVal")}
@@ -134,15 +133,15 @@ class Table extends Component {
           <Button size="medium" text="Filter" onClick={this.openFilter} />
         </div>
         {openModel && (
-          <div className={style.modal}>
+          <div className={style['option__add-modal']}>
             {this.populateInput()}
-            <div className={style.modal_button}>
+            <div className={style['option__add-modalbutton']}>
               <Button text="Add" onClick={this.appendData} />
               <Button text="Close" onClick={this.openModel} />
             </div>
           </div>
         )}
-         {openFilter && <Filter options={this.props.tableData} dbData={this.state.dbData} onFilter={this.handlefilter}/>}
+         {openFilter && <Filter visibility={false} options={this.props.tableData} dbData={this.state.dbData} onFilter={this.handlefilter}/>}
          
         <div className={style.wrapper}>
           <table>

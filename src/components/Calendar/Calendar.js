@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Calendar.module.css';
 import arrow_left from '../icons/arrow_left.svg';
 import arrow_right from '../icons/arrow_right.svg';
+import PropTypes from "prop-types";
 export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
@@ -59,14 +60,14 @@ export default class Calendar extends React.Component {
       dateProperty['cMonth'] == this.full_month_name[tempDate.getMonth()] &&
       dateProperty["cYear"] == tempDate.getFullYear()
     ) {
-      return style.current_date_highlight;
+      return style['bodyrow__currentdate--highlight'];
     } else {
       var returnClass =
         selectedDate['sDate'] === dayCalc &&
         selectedDate['sMonth'] === dateProperty['cMonth'] &&
         selectedDate["sYear"] === dateProperty["cYear"]
-          ? style.date_highlight
-          : style.date;
+          ? style['bodyrow__date--highlight']
+          : style['bodyrow__date'];
       return returnClass;
     }
   }
@@ -86,7 +87,7 @@ export default class Calendar extends React.Component {
     let days = [1, 2, 3, 4, 5, 6, 7];
     innerHtml = rows.map((row, index) => {
       return (
-        <div className={style.w100} key={index}>
+        <div className={style['calendar__bodyrow']} key={index}>
           {days.map((day, index) => {
             if (
               row * 7 + day >= this.firstDayOfMonth &&
@@ -106,7 +107,7 @@ export default class Calendar extends React.Component {
                 </p>
               );
             } else {
-              return <p className={style.emptyDate} key={index}></p>;
+              return <p className={style['bodyrow__emptydate']} key={index}></p>;
             }
           })}
         </div>
@@ -180,51 +181,58 @@ export default class Calendar extends React.Component {
     let innerHtml = this.getInnerCalendar();
     return (
       <React.Fragment>
-        <section className={style.mainCont}>
+        <section className={style['calendar']}>
           <section>
-            <div className={style.divHeader}>
+            <div className={style['calendar__header']}>
               <div
-                className={style.nxtNforw}
+                className={style['header__backwardicon']}
                 onClick={this.monthChanged.bind(this, false)}
               >
                 <img
                   src={arrow_left}
-                  alt='user_profile'
-                  className={style.hov}
+                  alt='backArrow'
                 ></img>
               </div>
-              <div className={style.dym}>
+              <div className={style['header__yearmonth']}>
                 <strong>
                   {dateProperty.cMonth} {dateProperty.cYear}
                 </strong>
               </div>
               <div
-                className={style.nxtNprev}
+                className={style['header__forwardicon']}
                 onClick={this.monthChanged.bind(this, true)}
               >
                 <img
                   src={arrow_right}
-                  alt='user_profile'
-                  className={style.hov}
+                  alt='frontArrow'
                 ></img>
               </div>
             </div>
-            <div className={style.days_row}>
-              <div className={style.internal_day_row}>
-                <div className={style.days}>S</div>
-                <div className={style.days}>M</div>
-                <div className={style.days}>T</div>
-                <div className={style.days}>W</div>
-                <div className={style.days}>T</div>
-                <div className={style.days}>F</div>
-                <div className={style.days}>S</div>
+            <div className={style['header__week']}>
+              <div className={style['week__row']}>
+                <div className={style['week_row_days']}>S</div>
+                <div className={style['week_row_days']}>M</div>
+                <div className={style['week_row_days']}>T</div>
+                <div className={style['week_row_days']}>W</div>
+                <div className={style['week_row_days']}>T</div>
+                <div className={style['week_row_days']}>F</div>
+                <div className={style['week_row_days']}>S</div>
               </div>
             </div>
           </section>
-          <hr className={style.lineBreak} />
+          <hr className={style['calendar__linebreak']} />
           {innerHtml}
         </section>
       </React.Fragment>
     );
   }
 }
+
+Calendar.defaultProps = {
+  onClick:(selectedDate)=>{
+    console.log(selectedDate)
+  }
+};
+Calendar.propTypes = {
+
+};

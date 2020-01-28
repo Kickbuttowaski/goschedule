@@ -32,9 +32,23 @@ function App() {
     console.log("from app",data)
   }
   return (  
-    <div >
-    
-<DropList/>
+    <div  >
+  
+  <Table
+        dbData={getMovies()}
+        tableData={[
+          { label: "Name", value: "name" },
+          { label: "Contact", value: "phone" },
+          { label: "Service", value: "service" },
+          { label: "Date", value: "booking_date" },
+          { label: "Liked", value: "amount" },
+          {
+            label: "Status",
+            value: "status",
+            badge: "true"
+          }
+        ]}
+      />
    
       </div>
   );

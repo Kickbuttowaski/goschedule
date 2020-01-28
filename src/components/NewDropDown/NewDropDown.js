@@ -83,7 +83,7 @@ export default class NewDropDown extends React.Component {
             <span className={style.selectedTxt}>
               {selectedLabel === null
                 ? "Select any value"
-                : selectedLabel.substring(0, 35)}
+                : selectedLabel}
             </span>
           </div>
           <div className={style.item2}>
