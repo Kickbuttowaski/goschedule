@@ -70,7 +70,7 @@ export default class UserPicker extends React.Component {
       if(selectedOption.length !== 0)
       {
         result = <p className={style.singleUserpicker}>
-        <img className={style.avatar} src={selectedOption[0]['avatar']}/>
+        <img className={style.avatar1} src={selectedOption[0]['avatar']}/>
         {selectedOption[0]['value']}
         <img className={style.close} src={delete_sign} onClick={this.removeBadgeSingle}/></p>
       } 
@@ -88,7 +88,6 @@ export default class UserPicker extends React.Component {
     let selectedLabel = this.changePicker(this.props.mode)
     let inputText
     let singleStyle = mode === "S"?"32px":""
-    console.log(singleStyle)
     if(mode !== "S"){
       inputText=selectedOption.length !== 0? "add more people":"Enter people or Teams"
     }

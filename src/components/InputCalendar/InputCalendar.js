@@ -1,8 +1,8 @@
 import React from 'react';
-import style from './Calendar.module.css';
+import style from './InputCalendar.module.css';
 import arrow_left from '../icons/arrow_left.svg';
 import arrow_right from '../icons/arrow_right.svg';
-export default class Calendar extends React.Component {
+export default class InputCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.type = 'hdrCont_' + this.props.type;
@@ -202,7 +202,7 @@ export default class Calendar extends React.Component {
     return (
       <React.Fragment>
         <section className={style.mainCont}>
-          <section>
+          <section className={style.parentdivHeader}>
             <div className={style.divHeader}>
               <div
                 className={style.nxtNforw}
@@ -232,18 +232,19 @@ export default class Calendar extends React.Component {
             </div>
             <div className={style.days_row}>
               <div className={style.internal_day_row}>
-                <div className={style.days}>S</div>
-                <div className={style.days}>M</div>
-                <div className={style.days}>T</div>
-                <div className={style.days}>W</div>
-                <div className={style.days}>T</div>
-                <div className={style.days}>F</div>
-                <div className={style.days}>S</div>
+                <div className={style.days}>Su</div>
+                <div className={style.days}>Mo</div>
+                <div className={style.days}>Tu</div>
+                <div className={style.days}>We</div>
+                <div className={style.days}>Th</div>
+                <div className={style.days}>Fr</div>
+                <div className={style.days}>Sa</div>
               </div>
             </div>
           </section>
-          <hr className={style.lineBreak} />
+          <div className={style.monthParent}>
           {innerHtml}
+          </div>
         </section>
       </React.Fragment>
     );

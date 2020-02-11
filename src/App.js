@@ -1,6 +1,7 @@
-import React,{useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Link from "./components/Link/Link";
+import InputCalendar from "./components/InputCalendar/InputCalendar";
 import LinkGroup from "./components/Link/GroupLink";
 import Button from "./components/Button/Button";
 import Icon from "@material-ui/core/Icon";
@@ -23,39 +24,51 @@ import Badge from "./components/Badge/Badge";
 import ToolTip from "./components/ToolTip/ToolTip";
 import PTracker from "./components/pTracker";
 import TestSample from "./components/compState";
-import UserPicker from './components/UserPicker/UserPicker';
+import UserPicker from "./components/UserPicker/UserPicker";
 function App() {
-  var temp=true;
-  const [flag,setFlag]=useState(false)
+  var temp = true;
+  const [flag, setFlag] = useState(false);
 
-  const handleClick=(data)=>{
-    console.log("from app",data)
-  }
-  return (  
-    <div  >
-  
-  <Table
-        dbData={getMovies()}
-        tableData={[
-          { label: "Name", value: "name" },
-          { label: "Contact", value: "phone" },
-          { label: "Service", value: "service" },
-          { label: "Date", value: "booking_date" },
-          { label: "Liked", value: "amount" },
-          {
-            label: "Status",
-            value: "status",
-            badge: "true"
-          }
-        ]}
-      />
-   
-      </div>
+  const handleClick = data => {
+    console.log("from app", data);
+  };
+  return (
+    <div  style={{ margin: "20px",width:"500px" }}>
+    
+    <Button type="primary" size="medium"></Button>
+    <Button type="primary" disabled={true} size="medium"></Button>
+    <Button type="primary"  size="medium" icon="user_profile" icon_position="right"></Button>
+    <Button type="primary"  size="medium" icon="user_profile" icon_position="left"></Button>
+    <Button type="primary" disabled={true} size="medium" icon="user_profile" icon_position="right"></Button>
+    <Button type="secondary" size="medium"></Button>
+    <Button type="secondary" disabled={true} size="medium"></Button>
+    <Button type="secondary"  size="medium" icon="user_profile" icon_position="right"></Button>
+    <Button type="secondary"  size="medium" icon="user_profile" icon_position="left"></Button>
+    <Button type="secondary" disabled={true} size="medium" icon="user_profile" icon_position="right"></Button>
+
+    </div>
   );
 }
 
 export default App;
 /*
+      <Table
+          dbData={getMovies()}
+          tableData={[
+            { label: "Name", value: "name", width: "5%" },
+            { label: "Contact", value: "phone", width: "10%" },
+            { label: "Service", value: "service", width: "10%" },
+            { label: "Date", value: "booking_date", width: "10%" },
+            { label: "Liked", value: "amount", width: "5%" },
+            {
+              label: "Status",
+              value: "status",
+              width: "10%",
+              badge: "true"
+            }
+          ]}
+        />
+
 
     <Button type="primary" size="medium"></Button>
     <Button type="primary" disabled={true} size="medium"></Button>

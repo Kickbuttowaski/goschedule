@@ -7,9 +7,8 @@ export default class NewDropDown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: "props.selectedOption",
-      isOpen: false,
-      arrow: "keyboard_arrow_down"
+      selectedOption: "",
+      isOpen: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -18,23 +17,15 @@ export default class NewDropDown extends React.Component {
 
   handleChange(val) {
     let { onChange } = this.props;
-    let arrow =
-      this.state.arrow === "keyboard_arrow_down"
-        ? "keyboard_arrow_up"
-        : "keyboard_arrow_down";
-    this.setState({ selectedOption: val, arrow });
+    this.setState({ selectedOption: val });
     onChange && onChange(val);
   }
 
   toggleDropdown() {
-    let arrow =
-      this.state.arrow === "keyboard_arrow_down"
-        ? "keyboard_arrow_up"
-        : "keyboard_arrow_down";
+  
     this.setState(
       {
-        isOpen: !this.state.isOpen,
-        arrow
+        isOpen: !this.state.isOpen
       },
       () => {
         document.addEventListener("click", this.hideDropdownMenu);
@@ -44,8 +35,7 @@ export default class NewDropDown extends React.Component {
   hideDropdownMenu() {
     this.setState(
       {
-        isOpen: false,
-        arrow: "keyboard_arrow_down"
+        isOpen: false
       },
       () => {
         document.removeEventListener("click", this.hideDropdownMenu);
@@ -53,44 +43,44 @@ export default class NewDropDown extends React.Component {
     );
   }
   render() {
-    let { options, disabled = false } = this.props;
-    const { isOpen, selectedOption = "", arrow } = this.state;
+    let { options } = this.props;
+    const { isOpen, selectedOption = "" } = this.state;
     let selectedLabel = null;
     let html = options.map((obj, i) => {
       if (selectedOption === obj.value && selectedLabel === null) {
         selectedLabel = obj.label;
       }
       return (
-        <span
+        <p
           key={i}
-          className={style.dropdownList}
+          className={style['dropdown-list__item']}
           onClick={this.handleChange.bind(this, obj.value)}
         >
           {obj.label}
-        </span>
+        </p>
       );
     });
     return (
-      <div className={style.selectContainer}>
+      <div className={style['dropdown']}>
         <div
           className={
-            isOpen === true ? style.selectStyle_click : style.selectStyle
+            isOpen === true ? style["dropdown__sub--open"] : style["dropdown__sub"]
           }
           onClick={this.toggleDropdown}
         >
-          <div className={style.textcontainer}>
+          <div className={style["dropdown__textcontainer"]}>
             
-            <span className={style.selectedTxt}>
+            <span className={style["textcontainer__selected-text"]}>
               {selectedLabel === null
                 ? "Select any value"
                 : selectedLabel}
             </span>
           </div>
-          <div className={style.item2}>
+          <div className={style["textcontainer__arrow"]}>
             <img src={user_profile} alt="user_profile"></img>
           </div>
         </div>
-        {isOpen ? <div className={style.selectDropdown}>{html}</div> : null}
+        {isOpen ? <div className={style["dropdown__dropdown-list"]}>{html}</div> : null}
       </div>
     );
   }
@@ -100,7 +90,7 @@ NewDropDown.defaultProps = {
   options: [
     {
       value: "chocolatechocolate",
-      label: "Chocolate ChocolateChocolateChocolate"
+      label: "Chocolate"
     },
     { value: "strawberry", label: "Strawberry" },
     { value: "vanilla", label: "Vanilla" }

@@ -7,34 +7,27 @@ export default class RadioGroup extends React.Component {
     this.state = {
       selectedOption: props.selectedOption
     };
-    this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
-  handleOptionChange(data) {
-   var {onClick} = this.props;
+  handleOptionChange(id,data) {
+   var {onChange} = this.props;
     this.setState({
-      selectedOption: data['id']
+      selectedOption: id
     });
-    onClick && onClick(data);
+    onChange && onChange(id, data);
   }
 
   render() {
-    let {
-      options = [
-        { id: "option1", value: "Option 1" },
-        { id: "option2", value: "Option 2" },
-        { id: "option3", value: "Option 3" },
-        { id: "option4", value: "Option 4" }
-      ]
-    } = this.props;
+    let {options} = this.props;
     let optionHtml = options.map((obj, i) => {
       return (
-        <span key={i} className={style['radio-button']}  onClick={()=>this.handleOptionChange(obj)}>
+        <label key={i} className={style['radio-button']}  >
           {obj.value}
           <input
             type="radio"
             checked={this.state.selectedOption === obj.id}
             name="radio"
+            onClick={this.handleOptionChange.bind(this, obj.id, obj)}
           />
           <span
             className={style['radio-button__checkmark']}
@@ -43,7 +36,7 @@ export default class RadioGroup extends React.Component {
           
           ></span>
 
-        </span>
+        </label>
       );
     });
     return <div className={style['radio-group']}>{optionHtml}</div>;
@@ -55,9 +48,13 @@ RadioGroup.defaultProps = {
   disabled: false,
   dataId: "checkBoxComp",
   label: "CheckBox",
-  onClick:(data)=>{
-    console.log("inbuilt",data)
-  }
+  onChange:(id,data)=>{
+    console.log("inbuilt",id,data)
+  },
+  options:[ { id: "option1", value: "Option 1" },
+  { id: "option2", value: "Option 2" },
+  { id: "option3", value: "Option 3" },
+  { id: "option4", value: "Option 4" }]
 };
 RadioGroup.propTypes = {
   isChecked: PropTypes.bool,

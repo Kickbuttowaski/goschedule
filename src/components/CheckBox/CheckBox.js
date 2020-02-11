@@ -12,7 +12,7 @@ export default class CheckBox extends React.Component {
 
   onChange(e) {
     var { isChecked } = this.state;
-    var {onClick} = this.props;
+    var {onChange} = this.props;
     if (isChecked.indexOf(e) !== -1) {
       isChecked = isChecked.filter(data => data != e);
     } else {
@@ -21,7 +21,7 @@ export default class CheckBox extends React.Component {
     this.setState({
       isChecked
     });
-    onClick && onClick(isChecked)
+    onChange && onChange(isChecked)
   }
 
   render() {
@@ -31,12 +31,12 @@ export default class CheckBox extends React.Component {
       return (
         <label key={i} className={style['check-box__each']} >
           {obj.value}
-          <input type="checkbox" name="checkbox" />
+          <input type="checkbox" name="checkbox"   onClick={() => this.onChange(obj)}/>
           <span
             className={style['check-box__checkmark']}
             value={obj.value}
             id={obj.id}
-            onClick={() => this.onChange(obj.id)}
+          
           ></span>
         </label>
       );
@@ -49,7 +49,10 @@ CheckBox.defaultProps = {
  options:[ { id: "option1", value: "Option 1" },
  { id: "option2", value: "Option 2" },
  { id: "option3", value: "Option 3" },
- { id: "option4", value: "Option 4" }]}
+ { id: "option4", value: "Option 4" }],
+onChange:(data)=>{
+  console.log(data)
+}}
 CheckBox.propTypes = {
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf({

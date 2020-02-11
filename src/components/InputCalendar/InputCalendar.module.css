@@ -13,7 +13,7 @@
 }
 .font-inter {
   font-family: Inter;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -64,6 +64,8 @@
 .dym {
   text-align: center;
   padding: 6px 5px;
+  font-size: 0.944rem;
+  line-height: 1.42857143;
 }
 .hdrCont_type1 {
   display: flex;
@@ -77,38 +79,55 @@
   background-color: black;
   color: white;
 }
+.monthParent{
+  margin:0.4rem;
+  text-align: center;
+}
 .divHeader {
   display: flex;
   justify-content: space-between;
   align-items:flex-start ;
 }
+.parentdivHeader{
+  border-bottom: 1px solid #aeaeae;
+  padding-top: 8px;
+  border-top-left-radius: 0.3rem;
+border-top-right-radius: 0.3rem;
+line-height: 1.42857143;
+background-color: #f0f0f0;
+}
 .type2 {
   visibility: hidden;
 }
-.days_row {
-  display: flex;
-  justify-content: space-between;
-}
+
 .internal_day_row {
   display: flex;
-  width: 100%;
   flex-direction: row;
   justify-content: space-evenly;
+  line-height: 1.42857143;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  margin:0px 4px
+  
 }
 .mainCont {
-  
-  padding: 10px 0px;
+  border: 1px solid #aeaeae;
+  border-radius: 0.3rem;
   background-color: white;
+  line-height: 1.42857143;
+  display: inline-block;
 }
 .w100 {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  line-height: 1.42857143;
   justify-content: space-between;
+  
 }
 
 .emptyDate {
   composes: font-inter;
+  font-size: 0.8rem;
   text-align: center;
   flex: 1;
   padding: 3% 0;
@@ -117,20 +136,23 @@
 }
 .date {
   composes: font-inter;
+  font-size: 0.8rem;
   text-align: center;
   flex: 1;
-  padding: 3% 0;
-  margin: 0px 3px;
   user-select: none;
+  width: 1.7rem;
+line-height: 1.7rem;
+margin: 0.166rem;
 }
 .date:hover span {
-  padding: 15% 16%;
+  padding: 15% 15%;
   border-radius: 4px;
   cursor: pointer;
   background-color: #DAF4FF;
 }
 .date_highlight {
   composes: font-inter;
+  font-size: 0.8rem;
   text-align: center;
   flex: 1;
   padding: 3% 0;
@@ -145,6 +167,7 @@
 }
 .current_date_highlight {
   composes: font-inter;
+  font-size: 0.8rem;
   text-align: center;
   flex: 1;
   padding: 3% 0;
@@ -165,12 +188,16 @@
 }
 .days {
   composes: font-inter;
-  font-size: 14px;
+  white-space: nowrap;
+  font-size: 0.8rem;
   line-height: 1.43;
   text-align: center;
   flex: 1;
-  padding: 6px 0;
+  margin: 0.166rem;
   user-select: none;
+  margin: 0.166rem;
+  width: 1.7rem;
+  
 }
 .propHeader,
 .props {

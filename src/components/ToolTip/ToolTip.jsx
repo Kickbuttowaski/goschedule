@@ -4,9 +4,9 @@ import { PropTypes } from 'prop-types';
 
 const ToolTip = ({ text }) => {
   return (
-    <div className={style.container}>
+    <div className={style["tooltip"]}>
      {text}
-      <div className={style.subContainer}></div>
+      <div className={style["tooltip__sub"]}></div>
     </div>
   );
 };

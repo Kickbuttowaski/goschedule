@@ -16,11 +16,11 @@
   line-height: 1.43;
   letter-spacing: normal;
 }
-.selectContainer {
+.dropdown {
   display: inline-block;
   width: 100%;
 }
-.selectStyle {
+.dropdown__sub {
   display: flex;
   align-items: center;
   height: 32px;
@@ -31,7 +31,7 @@
   cursor: pointer;
   user-select: none;
 }
-.selectStyle_click {
+.dropdown__sub--open {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -44,22 +44,22 @@
   user-select: none;
   
 }
-.textcontainer{
+.dropdown__textcontainer{
   width: 80%;
   padding-right: 8px;
 }
-.item2 {
+.textcontainer__arrow {
   width:20%;
   position: relative;
   text-align: right;
   padding-right: 12px;
 }
-.item2 img{
+.textcontainer__arrow img{
   width: 12px;
   height: 12px;
 }
 
-.selectedTxt {
+.textcontainer__selected-text {
   composes: font-inter;
   color: #333333;
   padding: 10px 8px 6px 12px;
@@ -69,38 +69,34 @@
   width: calc(100%);
   display:inline-block
 }
-.selectDropdown {
+.dropdown__dropdown-list {
   user-select: none;
   margin-top: 4px;
   overflow-y: auto;
-  max-height: 140px;
+  max-height: 120px;
   border-radius: 4px;
   background: #ffffff;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
-  padding-bottom: 5px;
   z-index: 2;
   position: absolute;
   width: 240px;
 }
-.dropdownList {
+.dropdown__dropdown-list::-webkit-scrollbar {
+  width: 0 !important;
+}
+.dropdown-list__item {
   composes: font-inter;
   height: 28px;
   display: block;
-  padding: 5px 0 5px 8px;
+  padding: 5px 0px 5px 8px;
   margin-top: 5px;
   margin-left: 2px;
-  margin-right: 2px;
   width: 240px;
 }
-.selectDropdown::-webkit-scrollbar {
-  width: 0 !important;
-}
-.dropdownList:hover {
+
+.dropdown-list__item:hover {
   display: block;
   background-color: #f0f0f0;
   cursor: pointer;
   margin-top: 5px;
-}
-.optionStyle {
-  background: #f4f5f6;
 }
