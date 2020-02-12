@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import Link from "./components/Link/Link";
 import InputCalendar from "./components/InputCalendar/InputCalendar";
+import InputText from "./components/InputCalendar/InputText";
 import LinkGroup from "./components/Link/GroupLink";
 import Button from "./components/Button/Button";
 import Icon from "@material-ui/core/Icon";
 import Calendar from "./components/Calendar/Calendar";
-import InputText from "./components/InputText/InputText";
+//import InputText from "./components/InputText/InputText";
 import NewDropDown from "./components/NewDropDown/NewDropDown";
 import Table from "./components/Table/Table";
 import { getMovies } from "./components/Table/fakeMovieService";
@@ -35,17 +36,7 @@ function App() {
   return (
     <div  style={{ margin: "20px",width:"500px" }}>
     
-    <Button type="primary" size="medium"></Button>
-    <Button type="primary" disabled={true} size="medium"></Button>
-    <Button type="primary"  size="medium" icon="user_profile" icon_position="right"></Button>
-    <Button type="primary"  size="medium" icon="user_profile" icon_position="left"></Button>
-    <Button type="primary" disabled={true} size="medium" icon="user_profile" icon_position="right"></Button>
-    <Button type="secondary" size="medium"></Button>
-    <Button type="secondary" disabled={true} size="medium"></Button>
-    <Button type="secondary"  size="medium" icon="user_profile" icon_position="right"></Button>
-    <Button type="secondary"  size="medium" icon="user_profile" icon_position="left"></Button>
-    <Button type="secondary" disabled={true} size="medium" icon="user_profile" icon_position="right"></Button>
-
+  <InputText/>
     </div>
   );
 }

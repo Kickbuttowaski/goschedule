@@ -2,6 +2,7 @@ import React from 'react';
 import style from './InputCalendar.module.css';
 import arrow_left from '../icons/arrow_left.svg';
 import arrow_right from '../icons/arrow_right.svg';
+import InputText from './InputText';
 export default class InputCalendar extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +41,8 @@ export default class InputCalendar extends React.Component {
         sDate: '',
         sMonth: this.full_month_name[this.getCurrentMonth()],
         sYear: this.current_year
-      }
+      },
+      show:false
     };
     let tempDate = new Date(this.current_year, this.current_month + 1, 0);
     this.number_of_days = tempDate.getDate();
@@ -201,6 +203,7 @@ export default class InputCalendar extends React.Component {
     let innerHtml = this.getInnerCalendar();
     return (
       <React.Fragment>
+        <div className={style["tooltip__sub"]}></div>
         <section className={style.mainCont}>
           <section className={style.parentdivHeader}>
             <div className={style.divHeader}>
