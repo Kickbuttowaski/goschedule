@@ -8,36 +8,53 @@ import Filter from './../Filter/Filter';
 import PropTypes from "prop-types";
 
 class Table extends Component {
-  state = {
-    dbData: [],
-    filterData:[],
-    sortOrder: { path: "title", order: "asc" },
-    theadShadow: true,
-    selectVal: "",
-    addValue: {},
-    openModel: false,
-    openFilter:false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      dbData: [],
+      filterData:[],
+      sortOrder: { path: "title", order: "asc" },
+      theadShadow: true,
+      selectVal: "",
+      addValue: {},
+      openModel: false,
+      openFilter:false
+    };
+    this.getKeyValue = this.getKeyValue.bind(this);
+    this.handleSort = this.handleSort.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.generateHeader = this.generateHeader.bind(this);
+    this.handleData = this.handleData.bind(this);
+    this.generateBody = this.generateBody.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+    this.openModel = this.openModel.bind(this);
+  this.openFilter = this.openFilter.bind(this);
+  this.populateInput = this.populateInput.bind(this);
+  this.handlefilter = this.handlefilter.bind(this);
+  this.appendData = this.appendData.bind(this)
+
+  }
+  
   componentDidMount() {
     this.setState({ dbData: this.props.dbData });
   }
-  getKeyValue = () => {
+  getKeyValue () {
     const { dbData } = this.state;
     let keyValue = Object.keys({ ...dbData[0] });
     return keyValue;
   };
-  handleSort = path => {
+  handleSort(path) {
     const sortOrder = { ...this.state.sortOrder };
     sortOrder["path"] = path;
     sortOrder["order"] = sortOrder["order"] === "asc" ? "desc" : "asc";
     this.setState({ sortOrder });
   };
-  handleScroll = e => {
+  handleScroll (e)  {
     var theadShadow;
     theadShadow = e.currentTarget.scrollTop === 0 ? true : false;
     this.setState({ theadShadow });
   };
-  generateHeader = () => {
+  generateHeader () {
     let { tableData } = this.props;
     return tableData.map(({ label, value, width }) => (
       <th
@@ -50,10 +67,10 @@ class Table extends Component {
       </th>
     ));
   };
-  handleData = data => {
+  handleData (data) {
     this.setState({ selectVal: "filter " + data, droplist: data });
   };
-  generateBody = dbData => {
+  generateBody (dbData) {
     let { tableData } = this.props;
     return dbData.map(data => (
       <tr>
@@ -69,7 +86,7 @@ class Table extends Component {
       </tr>
     ));
   };
-  handleSelect = (e, selectVal, flag = true) => {
+  handleSelect  (e, selectVal, flag = true)  {
     var addValue = { ...this.state.addValue };
     if (flag) {
       this.setState({ [selectVal]: e.currentTarget.value });
@@ -78,13 +95,14 @@ class Table extends Component {
       this.setState({ addValue });
     }
   };
-  openModel = () => {
+  
+  openModel ()  {
     this.setState({ openModel: !this.state.openModel, addValue: {} });
   };
-  openFilter = () =>{
+  openFilter (){
     this.setState({openFilter:!this.state.openFilter})
   }
-  populateInput = () => {
+  populateInput  ()  {
     let { tableData } = this.props;
     let { addValue } = this.state;
     return tableData.map(({ label, value }) => (
@@ -95,10 +113,11 @@ class Table extends Component {
       />
     ));
   };
-  handlefilter= (filterResult)=>{
+ 
+  handlefilter (filterResult){
     this.setState({filterData:filterResult})
   }
-  appendData = () => {
+  appendData ()  {
     var dbData = [...this.state.dbData];
     dbData.push(this.state.addValue);
     this.setState({ dbData, openModel: false });
@@ -129,15 +148,15 @@ class Table extends Component {
             value={selectVal}
             onChange={e => this.handleSelect(e, "selectVal")}
           />
-          <Button size="medium" text="Add" onClick={this.openModel} />
-          <Button size="medium" text="Filter" onClick={this.openFilter} />
+          <Button size="medium" text="Add" onClick={this.openModel.bind(this)} />
+          <Button size="medium" text="Filter" onClick={this.openFilter.bind(this)} />
         </div>
         {openModel && (
           <div className={style['option__add-modal']}>
             {this.populateInput()}
             <div className={style['option__add-modalbutton']}>
-              <Button text="Add" onClick={this.appendData} />
-              <Button text="Close" onClick={this.openModel} />
+              <Button text="Add" onClick={this.appendData.bind(this)} />
+              <Button text="Close" onClick={this.openModel.bind(this)} />
             </div>
           </div>
         )}

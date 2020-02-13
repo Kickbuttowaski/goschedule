@@ -5,12 +5,15 @@ import delete_sign from "../icons/delete_sign.svg"
 import { PropTypes } from 'prop-types';
 
 class AlertBox extends Component {
-  state = { flag: true };
+  constructor(props) {
+    super(props);
+    this.state = { flag: true };
+  }
 
   static getDerivedStateFromProps(props, current_state) {
     return { flag: !current_state.flag }
   }
-  toggleAlert = () => {
+  toggleAlert() {
     this.setState({ flag: true })
   }
   render() {
@@ -24,7 +27,7 @@ class AlertBox extends Component {
           alt="success_status"
         ></img>
         <p className={style['alert-box__main-info']}>{mainText}</p>
-        <img className={style['alert-box__close-icon']} src={delete_sign} alt="close" onClick={this.toggleAlert}></img>
+        <img className={style['alert-box__close-icon']} src={delete_sign} alt="close" onClick={this.toggleAlert.bind(this)}></img>
         <p className={style['alert-box__sub-info']} >{subText}</p>
       </div>
     );

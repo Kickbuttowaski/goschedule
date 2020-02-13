@@ -34,9 +34,8 @@ function App() {
     console.log("from app", data);
   };
   return (
-    <div  style={{ margin: "20px",width:"500px" }}>
-    
-  <InputText/>
+    <div >
+    <ToggleSwitch onChange={handleClick}/>
     </div>
   );
 }
