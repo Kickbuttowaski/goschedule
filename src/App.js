@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import Link from "./components/Link/Link";
 import InputCalendar from "./components/InputCalendar/InputCalendar";
-import InputText from "./components/InputCalendar/InputText";
+//import InputText from "./components/InputCalendar/InputText";
 import LinkGroup from "./components/Link/GroupLink";
 import Button from "./components/Button/Button";
 import Icon from "@material-ui/core/Icon";
 import Calendar from "./components/Calendar/Calendar";
-//import InputText from "./components/InputText/InputText";
+import InputText from "./components/InputText/InputText";
 import NewDropDown from "./components/NewDropDown/NewDropDown";
 import Table from "./components/Table/Table";
 import { getMovies } from "./components/Table/fakeMovieService";
@@ -34,8 +34,10 @@ function App() {
     console.log("from app", data);
   };
   return (
-    <div >
-    <ToggleSwitch onChange={handleClick}/>
+    <div style={{margin:"20px"}}>
+   <UserPicker/>
+   
+    
     </div>
   );
 }

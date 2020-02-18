@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import style from "./Filter.module.css";
 import InputText from "./InputText";
-import Icon from "@material-ui/core/Icon";
 import NewDropDown from "../NewDropDown/NewDropDown";
 import Button from "../Button/Button"
 import _ from "lodash";
@@ -9,34 +8,42 @@ import filterLogic from './filterLogic';
 import PropTypes from "prop-types";
 
 class Filter extends Component {
-  state = {
-    filterVal: [{ inputVal: "", dropDown1: "", dropDown2: "" }],
-    more: false,
-    counter: 0,
-    flag: false,
-    visibility:false
-  };
- 
-  handleInput = (e, index) => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterVal: [{ inputVal: "", dropDown1: "", dropDown2: "" }],
+      more: false,
+      counter: 0,
+      flag: false,
+      visibility:false
+    };
+    this.handleInput=this.handleInput.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this); 
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.setStatus = this.setStatus.bind(this);
+  }
+  
+  handleInput(e, index)  {
     var filterVal = [...this.state.filterVal];
     filterVal[index].inputVal = e.currentTarget.value;
     this.setState({ filterVal,flag:false });
   };
-  handleDropdown =(val,index,ddown)=>{
+  handleDropdown (val,index,ddown){
     var dropDown = ddown === "d1" ?"dropDown1" :"dropDown2"
     var filterVal = [...this.state.filterVal];
     filterVal[index][dropDown] = val;
     this.setState({ filterVal,flag:false });
   }
-  handleClick=()=>{
+  handleClick(){
     let { onFilter } = this.props;
     let tempRes = filterLogic(this.state.filterVal,this.props.dbData)
     onFilter && onFilter(tempRes)
   }
-  handleClose=()=>{
+  handleClose(){
     this.setState({visibility:true})
   }
-  setStatus = () => {
+  setStatus  ()  {
     var { filterVal } = this.state;
     filterVal.push({ inputVal: "", dropDown1: "", dropDown2: "" });
     this.setState({filterVal})
@@ -68,8 +75,8 @@ class Filter extends Component {
           onChange={e => this.handleInput(e, index)}
           value={filterVal[index].inputVal}
         />
-        <Icon onClick={this.setStatus}>add</Icon>
-         <Icon>clear</Icon> 
+        <p onClick={this.setStatus} style={{fontSize:"28px",marginLeft:"5px",cursor:"pointer"}}>+</p>
+         <p style={{fontSize:"28px",marginLeft:"8px",cursor:"pointer"}}>c</p> 
          
       </div>
     ) }

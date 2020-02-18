@@ -8,6 +8,7 @@ class AlertBox extends Component {
   constructor(props) {
     super(props);
     this.state = { flag: true };
+    this.toggleAlert = this.toggleAlert.bind(this);
   }
 
   static getDerivedStateFromProps(props, current_state) {
